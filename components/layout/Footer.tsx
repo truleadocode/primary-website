@@ -11,26 +11,25 @@ const social = [
 const footerLinks = {
   Product: [
     { label: 'Features', href: '#features' },
-    { label: 'Pricing', href: '#pricing' },
     { label: 'How it Works', href: '#how-it-works' },
-    { label: 'Integrations', href: '#' },
+    { label: 'Integrations', href: '/integrations' },
   ],
   Company: [
     { label: 'About', href: 'mailto:hello@truleado.com?subject=About%20Truleado' },
     { label: 'Careers', href: 'mailto:hello@truleado.com?subject=Careers' },
-    { label: 'Blog', href: '#' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: 'mailto:hello@truleado.com' },
   ],
   Resources: [
-    { label: 'Help Center', href: '#' },
-    { label: 'API Docs', href: '#' },
-    { label: 'Community', href: '#' },
-    { label: 'Status', href: '#' },
+    { label: 'Help Center', href: '/help' },
+    { label: 'API Docs', href: '/docs' },
+    { label: 'Community', href: '/community' },
+    { label: 'Status', href: '/status' },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms of Service', href: '/terms' },
-    { label: 'Cookie Policy', href: '#' },
+    { label: 'Cookie Policy', href: '/cookies' },
   ],
 }
 
