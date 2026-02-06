@@ -1,0 +1,12 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="upper-left">
+      <polygon points="0,0 40,0 0,40"/>
+    </clipPath>
+    <clipPath id="lower-right">
+      <polygon points="40,0 40,40 0,40"/>
+    </clipPath>
+  </defs>
+  <path d="M2 2h36v12H26v24H14V14H2z" fill="#ffffff" clip-path="url(#upper-left)"/>
+  <path d="M2 2h36v12H26v24H14V14H2z" fill="#6366f1" clip-path="url(#lower-right)"/>
+</svg>
