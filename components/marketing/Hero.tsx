@@ -11,12 +11,6 @@ export function Hero() {
     secondaryCTA: { text: 'Watch Demo', href: '#how-it-works' },
   }
 
-  const stats = [
-    { value: '500+', label: 'Agencies' },
-    { value: '10K+', label: 'Campaigns' },
-    { value: '98%', label: 'Satisfaction' },
-  ]
-
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white">
       {/* Background Elements */}
@@ -85,15 +79,6 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Stats */}
-          <div className="mt-16 grid grid-cols-3 gap-8 border-t border-slate-200/60 pt-10">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl font-black text-slate-900 sm:text-4xl">{stat.value}</div>
-                <div className="mt-1 text-sm text-slate-500">{stat.label}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Dashboard Preview - Modern Light Mode */}
