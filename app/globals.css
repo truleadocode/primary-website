@@ -103,6 +103,11 @@
   }
 }
 
+/* Fix descender clipping on gradient text (bg-clip-text cuts off g, y, p, etc.) */
+.bg-clip-text {
+  padding-bottom: 0.1em;
+}
+
 /* Smooth theme switching — scoped to html only, not all elements */
 html {
   transition: background-color 0.3s ease, color 0.3s ease;

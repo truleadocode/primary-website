@@ -52,48 +52,23 @@ export function Footer() {
       name: 'Claude',
       href: `https://claude.ai/new?q=${aiPrompt}`,
       icon: (
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-7 w-7">
-          <path d="M17.308 3.616L12.478 13.78l-1.618-3.744L15.69 3.616h1.618zM8.442 3.616l4.83 10.164 1.618-3.744L10.06 3.616H8.442zM4.052 20.384L9.612 8.22l1.618 3.744-5.56 8.42H4.052zm15.896 0l-5.56-12.164-1.618 3.744 5.56 8.42h1.618z" fill="#D97706"/>
-        </svg>
+        <img src="/claude-ai-icon.webp" alt="Claude" className="h-7 w-7 rounded-lg" />
       ),
     },
     {
       name: 'Perplexity',
       href: `https://www.perplexity.ai/search?q=${aiPrompt}`,
-      icon: (
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-7 w-7">
-          <path d="M8.187 2v6.165L4 4.81v7.32h3.696v7.06L4 15.833V22l8.187-6.53V22l7.626-6.167v-7.06H16.5V2L12.187 5.86 8.187 2zm1.5 2.476l2.5 2.168-2.5 2.521V4.476zm6.313 0v4.689L13.5 6.644 16 4.476zM5.5 6.862l2.187 1.56v3.398H5.5V6.862zm13 0v4.958h-2.187V8.422L18.5 6.862zM9.687 9.838l2.5 1.9v4.17l-2.5 1.995V9.838zm5 0v8.065l-2.5-1.995v-4.17l2.5-1.9zM5.5 13.32h2.187v3.398l-2.187 1.56V13.32zm11.313 0H19v4.958l-2.187-1.56V13.32z" fill="#20B8CD"/>
-        </svg>
-      ),
+      icon: <img src="/perplexity-ai-icon.webp" alt="Perplexity" className="h-7 w-7 rounded-lg" />,
     },
     {
       name: 'Gemini',
       href: `https://gemini.google.com/app?q=${aiPrompt}`,
-      icon: (
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-7 w-7">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="url(#gemini-grad)"/>
-          <defs>
-            <linearGradient id="gemini-grad" x1="0" y1="0" x2="24" y2="24">
-              <stop offset="0%" stopColor="#4285F4"/>
-              <stop offset="25%" stopColor="#9B72CB"/>
-              <stop offset="50%" stopColor="#D96570"/>
-              <stop offset="75%" stopColor="#D96570"/>
-              <stop offset="100%" stopColor="#9B72CB"/>
-            </linearGradient>
-          </defs>
-          <path d="M12 4.5c0 4.14-3.36 7.5-7.5 7.5 4.14 0 7.5 3.36 7.5 7.5 0-4.14 3.36-7.5 7.5-7.5-4.14 0-7.5-3.36-7.5-7.5z" fill="white"/>
-        </svg>
-      ),
+      icon: <img src="/gemini-color.png" alt="Gemini" className="h-7 w-7 rounded-lg" />,
     },
     {
       name: 'Grok',
       href: `https://grok.com/?q=${aiPrompt}`,
-      icon: (
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-7 w-7">
-          <rect width="24" height="24" rx="5" fill="#000"/>
-          <path d="M6.5 5L12 12.5 17.5 5h-2.3L12 9.3 8.8 5H6.5zm0 14L12 11.5 17.5 19h-2.3L12 14.7 8.8 19H6.5z" fill="#FF6600"/>
-        </svg>
-      ),
+      icon: <img src="/grok.png" alt="Grok" className="h-7 w-7 rounded-lg" />,
     },
   ]
 
