@@ -16,13 +16,13 @@ export function Pricing() {
 
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-1.5 text-xs font-semibold text-emerald-700 ring-1 ring-inset ring-emerald-600/20">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-600/20">
             <Sparkles className="h-3.5 w-3.5" />
             Free During Beta
           </div>
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Everything included.
-            <span className="block bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Free while in beta.
             </span>
           </h2>
@@ -34,15 +34,15 @@ export function Pricing() {
         {/* Single plan card */}
         <div className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
           {/* Card top */}
-          <div className="bg-slate-950 px-8 py-10 sm:px-12">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-700 px-8 py-10 sm:px-12">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
               <div>
-                <div className="text-sm font-semibold text-violet-400 mb-1">Beta Plan</div>
+                <div className="text-sm font-semibold text-blue-200 mb-1">Beta Plan</div>
                 <div className="text-5xl font-black text-white">Free</div>
-                <div className="mt-1 text-slate-400 text-sm">Full access · No credit card · Cancel anytime</div>
+                <div className="mt-1 text-blue-100 text-sm">Full access · No credit card · Cancel anytime</div>
               </div>
               <Link href="https://app.truleado.com/signup">
-                <button className="group inline-flex items-center justify-center cursor-pointer px-8 py-3.5 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-100 transition-colors duration-150 whitespace-nowrap">
+                <button className="group inline-flex items-center justify-center cursor-pointer px-8 py-3.5 text-base font-bold text-blue-700 bg-white rounded-xl hover:bg-blue-50 transition-colors duration-150 whitespace-nowrap">
                   Start for Free
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-150 group-hover:translate-x-0.5" />
                 </button>
@@ -72,7 +72,7 @@ export function Pricing() {
 
         <p className="mt-6 text-center text-sm text-slate-400">
           Free for creators too.{' '}
-          <a href="mailto:hello@truleado.com" className="text-violet-600 hover:text-violet-700 font-medium transition-colors">
+          <a href="mailto:hello@truleado.com" className="text-blue-600 hover:text-blue-700 font-medium transition-colors">
             Questions? Chat with us.
           </a>
         </p>

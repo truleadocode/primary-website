@@ -47,12 +47,12 @@ export function FAQ() {
 
         {/* Header */}
         <div className="text-center mb-14">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-violet-600 ring-1 ring-inset ring-violet-500/20 shadow-sm">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-blue-600 ring-1 ring-inset ring-blue-500/20 shadow-sm">
             FAQ
           </div>
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
             Frequently Asked
-            <span className="block bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Questions
             </span>
           </h2>
@@ -66,7 +66,7 @@ export function FAQ() {
               <div
                 key={index}
                 className={`rounded-2xl border transition-colors duration-150 overflow-hidden ${
-                  isOpen ? 'bg-white border-violet-100 shadow-sm' : 'bg-white border-slate-200'
+                  isOpen ? 'bg-white border-blue-100 shadow-sm' : 'bg-white border-slate-200'
                 }`}
               >
                 <button
@@ -74,12 +74,12 @@ export function FAQ() {
                   className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span className={`text-base font-semibold transition-colors duration-150 ${isOpen ? 'text-violet-700' : 'text-slate-900'}`}>
+                  <span className={`text-base font-semibold transition-colors duration-150 ${isOpen ? 'text-blue-700' : 'text-slate-900'}`}>
                     {faq.question}
                   </span>
-                  <div className={`shrink-0 h-7 w-7 rounded-full flex items-center justify-center transition-colors duration-150 ${isOpen ? 'bg-violet-100' : 'bg-slate-100'}`}>
+                  <div className={`shrink-0 h-7 w-7 rounded-full flex items-center justify-center transition-colors duration-150 ${isOpen ? 'bg-blue-100' : 'bg-slate-100'}`}>
                     {isOpen
-                      ? <Minus className="h-3.5 w-3.5 text-violet-600" />
+                      ? <Minus className="h-3.5 w-3.5 text-blue-600" />
                       : <Plus className="h-3.5 w-3.5 text-slate-500" />
                     }
                   </div>
@@ -102,7 +102,7 @@ export function FAQ() {
         <div className="mt-10 text-center">
           <p className="text-slate-500 text-sm">
             Still have questions?{' '}
-            <a href="mailto:hello@truleado.com" className="font-semibold text-violet-600 hover:text-violet-700 transition-colors">
+            <a href="mailto:hello@truleado.com" className="font-semibold text-blue-600 hover:text-blue-700 transition-colors">
               Chat with our team →
             </a>
           </p>

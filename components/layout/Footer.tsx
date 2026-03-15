@@ -73,27 +73,27 @@ export function Footer() {
   ]
 
   return (
-    <footer className="bg-slate-900 text-slate-400" aria-labelledby="footer-heading">
+    <footer className="bg-slate-50 text-slate-500 border-t border-slate-200" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">Footer</h2>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Newsletter Section */}
-        <div className="py-12 border-b border-slate-800">
+        <div className="py-12 border-b border-slate-200">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-lg font-semibold text-white">Stay in the loop</h3>
-              <p className="mt-1 text-sm text-slate-400">Get the latest updates on features, tips, and agency insights.</p>
+              <h3 className="text-lg font-semibold text-slate-900">Stay in the loop</h3>
+              <p className="mt-1 text-sm text-slate-500">Get the latest updates on features, tips, and agency insights.</p>
             </div>
             <div className="flex gap-3 w-full md:w-auto">
               <div className="relative flex-1 md:w-64">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="w-full pl-10 pr-4 py-3 bg-slate-800 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 bg-white border border-slate-300 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
-              <button className="px-5 py-3 bg-indigo-500 text-white rounded-xl text-sm font-semibold hover:bg-indigo-400 transition-colors">
+              <button className="px-5 py-3 bg-blue-600 text-white rounded-xl text-sm font-semibold hover:bg-blue-700 transition-colors">
                 Subscribe
               </button>
             </div>
@@ -106,10 +106,8 @@ export function Footer() {
             {/* Brand column */}
             <div className="col-span-2">
               <Link href="/" className="inline-flex items-center gap-2.5" aria-label="Truleado Home">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
-                  <img src="/logo.svg" alt="Truleado" className="w-6 h-6" />
-                </div>
-                <span className="text-lg font-black text-white tracking-tight">Truleado</span>
+                <img src="/Truleado Logo Blue.png" alt="Truleado" className="h-8 w-auto" />
+                <span className="text-lg font-black text-slate-900 tracking-tight">Truleado</span>
               </Link>
               <p className="mt-4 text-sm leading-relaxed text-slate-500 max-w-xs">
                 The complete influencer marketing platform built for agencies. Manage campaigns, teams, clients, and creators from one workspace.
@@ -123,7 +121,7 @@ export function Footer() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white transition-all"
+                      className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-500 hover:bg-blue-50 hover:text-blue-600 transition-all"
                       aria-label={`Follow us on ${item.name}`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -136,8 +134,8 @@ export function Footer() {
 
               {/* AI Tools */}
               <div className="mt-6">
-                <h3 className="text-sm font-semibold text-white">Try it with AI</h3>
-                <p className="mt-1 text-xs text-slate-400">Tap any tool to ask how Truleado helps your agency.</p>
+                <h3 className="text-sm font-semibold text-slate-900">Try it with AI</h3>
+                <p className="mt-1 text-xs text-slate-500">Tap any tool to ask how Truleado helps your agency.</p>
                 <div className="mt-3 flex flex-wrap gap-3">
                   {aiTools.map((tool) => (
                       <Link
@@ -145,7 +143,7 @@ export function Footer() {
                         href={tool.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-800 hover:bg-slate-700 hover:scale-110 transition-all"
+                        className="flex h-11 w-11 items-center justify-center rounded-xl bg-white border border-slate-200 hover:border-blue-200 hover:bg-blue-50 hover:scale-110 transition-all shadow-sm"
                         aria-label={`Ask ${tool.name} about Truleado`}
                       >
                         {tool.icon}
@@ -158,7 +156,7 @@ export function Footer() {
             {/* Link columns */}
             {Object.entries(footerLinks).map(([category, links]) => (
               <div key={category}>
-                <h3 className="text-sm font-semibold text-white">
+                <h3 className="text-sm font-semibold text-slate-900">
                   {category}
                 </h3>
                 <ul className="mt-4 space-y-3">
@@ -166,7 +164,7 @@ export function Footer() {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-sm text-slate-400 hover:text-white transition-colors"
+                        className="text-sm text-slate-500 hover:text-slate-900 transition-colors"
                       >
                         {link.label}
                       </Link>
@@ -179,11 +177,11 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-slate-800 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-slate-500">
+        <div className="border-t border-slate-200 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-slate-400">
             &copy; {currentYear} Truleado. All rights reserved.
           </p>
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-400">
             Built with love for agencies that move fast.
           </p>
         </div>

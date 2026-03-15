@@ -52,18 +52,16 @@ export function Header() {
       <nav
         className={`mx-auto flex max-w-5xl items-center justify-between rounded-full px-4 sm:px-6 h-14 transition-all duration-300 ${
           scrolled
-            ? 'bg-slate-900/90 backdrop-blur-2xl border border-white/10 shadow-lg shadow-black/20'
-            : 'bg-slate-900/60 backdrop-blur-xl border border-white/8'
+            ? 'bg-white/95 backdrop-blur-2xl border border-slate-200 shadow-lg shadow-slate-900/5'
+            : 'bg-white/70 backdrop-blur-xl border border-slate-200/60'
         }`}
         aria-label="Global"
       >
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg flex items-center justify-center overflow-hidden">
-              <img src="/logo.svg" alt="Truleado" className="w-5 h-5" />
-            </div>
-            <span className="text-[15px] font-black text-white tracking-tight">
+            <img src="/Truleado Logo Blue.png" alt="Truleado" className="h-7 w-auto" />
+            <span className="text-[15px] font-black text-slate-900 tracking-tight">
               Truleado
             </span>
           </Link>
@@ -79,19 +77,19 @@ export function Header() {
                   onMouseEnter={() => setDropdownOpen(link.label)}
                   onMouseLeave={() => setDropdownOpen(null)}
                 >
-                  <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors">
+                  <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
 
                     {link.label}
                     <ChevronDown className="h-3 w-3" />
                   </button>
 
                   {dropdownOpen === link.label && (
-                    <div className="absolute top-full left-0 mt-1 w-56 bg-slate-900 rounded-xl shadow-lg border border-white/10 py-2 z-50">
+                    <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-lg border border-slate-200 py-2 z-50">
                       {link.dropdown.map((item) => (
                         <Link
                           key={item.label}
                           href={item.href}
-                          className="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/8 transition-colors"
+                          className="block px-4 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
                         >
                           {item.label}
                         </Link>
@@ -102,7 +100,7 @@ export function Header() {
               ) : (
                 <Link
                   href={link.href}
-                  className="px-3 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors"
+                  className="px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -117,31 +115,31 @@ export function Header() {
           <div className="relative login-dropdown">
             <button
               onClick={() => setLoginDropdownOpen(!loginDropdownOpen)}
-              className="hidden sm:flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors"
+              className="hidden sm:flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
             >
               Login
               <ChevronDown className="h-3 w-3" />
             </button>
 
             {loginDropdownOpen && (
-              <div className="absolute top-full right-0 mt-1 w-48 bg-slate-900 rounded-xl shadow-lg border border-white/10 py-2 z-50">
+              <div className="absolute top-full right-0 mt-1 w-48 bg-white rounded-xl shadow-lg border border-slate-200 py-2 z-50">
                 <Link
                   href="https://app.truleado.com/login"
-                  className="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/8 transition-colors"
+                  className="block px-4 py-3 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
                   onClick={() => setLoginDropdownOpen(false)}
                 >
                   Agency
                 </Link>
                 <Link
                   href="https://app.truleado.com/creator/login"
-                  className="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/8 transition-colors"
+                  className="block px-4 py-3 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
                   onClick={() => setLoginDropdownOpen(false)}
                 >
                   Creator
                 </Link>
                 <Link
                   href="https://app.truleado.com/client/login"
-                  className="block px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/8 transition-colors"
+                  className="block px-4 py-3 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
                   onClick={() => setLoginDropdownOpen(false)}
                 >
                   Client
@@ -151,7 +149,7 @@ export function Header() {
           </div>
 
           <Link href="https://app.truleado.com/signup" className="hidden sm:block">
-            <button className="inline-flex items-center px-4 py-2 text-[13px] font-semibold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-all hover:shadow-lg hover:shadow-slate-900/25">
+            <button className="inline-flex items-center px-4 py-2 text-[13px] font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all hover:shadow-lg hover:shadow-blue-600/25">
               Free Trial
               <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
             </button>
@@ -159,7 +157,7 @@ export function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden flex items-center justify-center w-8 h-8 text-slate-300"
+            className="md:hidden flex items-center justify-center w-8 h-8 text-slate-600"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -169,20 +167,20 @@ export function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-2 mx-auto max-w-5xl rounded-2xl bg-slate-900/95 backdrop-blur-xl border border-white/10 shadow-xl p-4">
+        <div className="md:hidden mt-2 mx-auto max-w-5xl rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200 shadow-xl p-4">
           <div className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <div key={link.label}>
                 {link.dropdown ? (
                   <div className="space-y-1">
-                    <div className="px-4 py-3 text-sm font-medium text-white border-b border-white/10">
+                    <div className="px-4 py-3 text-sm font-medium text-slate-900 border-b border-slate-100">
                       {link.label}
                     </div>
                     {link.dropdown.map((item) => (
                       <Link
                         key={item.label}
                         href={item.href}
-                        className="block px-6 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/8 rounded-lg transition-colors"
+                        className="block px-6 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {item.label}
@@ -192,7 +190,7 @@ export function Header() {
                 ) : (
                   <Link
                     href={link.href}
-                    className="px-4 py-3 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/8 rounded-lg transition-colors"
+                    className="px-4 py-3 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.label}
@@ -200,25 +198,25 @@ export function Header() {
                 )}
               </div>
             ))}
-            <div className="border-t border-white/10 pt-2 mt-2">
-              <div className="px-4 py-2 text-sm font-medium text-white">Login</div>
+            <div className="border-t border-slate-100 pt-2 mt-2">
+              <div className="px-4 py-2 text-sm font-medium text-slate-900">Login</div>
               <Link
                 href="https://app.truleado.com/login"
-                className="block px-6 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/8 rounded-lg transition-colors"
+                className="block px-6 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Agency
               </Link>
               <Link
                 href="https://app.truleado.com/creator/login"
-                className="block px-6 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/8 rounded-lg transition-colors"
+                className="block px-6 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Creator
               </Link>
               <Link
                 href="https://app.truleado.com/client/login"
-                className="block px-6 py-2 text-sm text-slate-300 hover:text-white hover:bg-white/8 rounded-lg transition-colors"
+                className="block px-6 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Client
@@ -229,7 +227,7 @@ export function Header() {
               className="mt-2"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <button className="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-white bg-slate-900 rounded-lg hover:bg-slate-800 transition-all">
+              <button className="w-full inline-flex items-center justify-center px-4 py-3 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-all">
                 Free Trial
                 <ArrowRight className="ml-1.5 h-4 w-4" />
               </button>

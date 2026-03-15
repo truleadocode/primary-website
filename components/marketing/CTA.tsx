@@ -5,39 +5,39 @@ export function CTA() {
   return (
     <section className="py-24 sm:py-32 bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-slate-950 px-6 py-20 sm:px-16 sm:py-28">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 px-6 py-20 sm:px-16 sm:py-28">
 
           {/* Background decoration */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-violet-600/15 rounded-full blur-3xl" />
-            <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-fuchsia-500/10 rounded-full blur-3xl" />
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:64px_64px]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-white/10 rounded-full blur-3xl" />
+            <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-indigo-500/30 rounded-full blur-3xl" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]" />
           </div>
 
           <div className="relative mx-auto max-w-2xl text-center">
             {/* Badge */}
-            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 px-4 py-2 text-sm font-medium text-violet-300">
-              <span className="h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse" />
+            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-4 py-2 text-sm font-medium text-white">
+              <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
               Limited Beta Access
             </div>
 
             {/* Heading */}
             <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl leading-tight">
               Ready to Transform
-              <span className="block bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+              <span className="block text-blue-100">
                 Your Agency?
               </span>
             </h2>
 
             {/* Description */}
-            <p className="mt-6 text-lg text-slate-400 leading-relaxed max-w-lg mx-auto">
+            <p className="mt-6 text-lg text-blue-100 leading-relaxed max-w-lg mx-auto">
               Join hundreds of influencer marketing agencies using Truleado to streamline client work, discover creators faster, and scale their operations.
             </p>
 
             {/* CTA */}
             <div className="mt-10">
               <Link href="https://app.truleado.com/signup">
-                <button className="group inline-flex items-center cursor-pointer justify-center px-8 py-4 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-100 transition-colors duration-150 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-white/10 min-w-[220px]">
+                <button className="group inline-flex items-center cursor-pointer justify-center px-8 py-4 text-base font-bold text-blue-700 bg-white rounded-xl hover:bg-blue-50 transition-colors duration-150 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-black/20 min-w-[220px]">
                   Start Free Trial
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-150 group-hover:translate-x-1" />
                 </button>
@@ -45,10 +45,10 @@ export function CTA() {
             </div>
 
             {/* Trust indicators */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm text-slate-500">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm text-blue-100">
               {['30-day free trial', 'No credit card required', 'Cancel anytime'].map((item) => (
                 <div key={item} className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-emerald-400 shrink-0" />
+                  <CheckCircle className="h-4 w-4 text-white shrink-0" />
                   <span>{item}</span>
                 </div>
               ))}
