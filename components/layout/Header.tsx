@@ -125,18 +125,25 @@ export function Header() {
             {loginDropdownOpen && (
               <div className="absolute top-full right-0 mt-1 w-48 bg-white rounded-xl shadow-lg border border-slate-200 py-2 z-50">
                 <Link
-                  href="https://app.truleado.com/agency-login"
+                  href="https://app.truleado.com/login"
                   className="block px-4 py-3 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
                   onClick={() => setLoginDropdownOpen(false)}
                 >
                   Agency
                 </Link>
                 <Link
-                  href="https://app.truleado.com/creator-login"
+                  href="https://app.truleado.com/creator/login"
                   className="block px-4 py-3 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
                   onClick={() => setLoginDropdownOpen(false)}
                 >
                   Creator
+                </Link>
+                <Link
+                  href="https://app.truleado.com/client/login"
+                  className="block px-4 py-3 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
+                  onClick={() => setLoginDropdownOpen(false)}
+                >
+                  Client
                 </Link>
               </div>
             )}
@@ -195,18 +202,25 @@ export function Header() {
             <div className="border-t border-slate-100 pt-2 mt-2">
               <div className="px-4 py-2 text-sm font-medium text-slate-900">Login</div>
               <Link
-                href="https://app.truleado.com/agency-login"
+                href="https://app.truleado.com/login"
                 className="block px-6 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Agency
               </Link>
               <Link
-                href="https://app.truleado.com/creator-login"
+                href="https://app.truleado.com/creator/login"
                 className="block px-6 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Creator
+              </Link>
+              <Link
+                href="https://app.truleado.com/client/login"
+                className="block px-6 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Client
               </Link>
             </div>
             <Link
