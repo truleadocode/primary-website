@@ -4,8 +4,8 @@ import { ArrowRight, CheckCircle } from 'lucide-react'
 export function CTA() {
   return (
     <section className="py-24 sm:py-32 bg-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 px-6 py-20 sm:px-16 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 px-5 py-16 sm:px-16 sm:py-28">
 
           {/* Background decoration */}
           <div className="absolute inset-0 pointer-events-none">

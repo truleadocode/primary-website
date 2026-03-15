@@ -43,7 +43,7 @@ export function FAQ() {
 
   return (
     <section className="py-24 sm:py-32 bg-slate-50">
-      <div className="mx-auto max-w-3xl px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-14">

@@ -12,7 +12,7 @@ const features = [
 export function Pricing() {
   return (
     <section id="pricing" className="py-24 sm:py-32 bg-white">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-12">
@@ -34,7 +34,7 @@ export function Pricing() {
         {/* Single plan card */}
         <div className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
           {/* Card top */}
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-700 px-8 py-10 sm:px-12">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-700 px-5 py-8 sm:px-12 sm:py-10">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
               <div>
                 <div className="text-sm font-semibold text-blue-200 mb-1">Beta Plan</div>
@@ -51,7 +51,7 @@ export function Pricing() {
           </div>
 
           {/* Feature grid */}
-          <div className="px-8 py-10 sm:px-12">
+          <div className="px-5 py-8 sm:px-12 sm:py-10">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
               {features.map((group) => (
                 <div key={group.category}>

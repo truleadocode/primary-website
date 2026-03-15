@@ -11,11 +11,11 @@ export function Hero() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#2563eb06_1px,transparent_1px),linear-gradient(to_bottom,#2563eb06_1px,transparent_1px)] bg-[size:72px_72px]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 pt-36 pb-20 sm:pt-44 sm:pb-28 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-28 pb-16 sm:pt-44 sm:pb-28 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
 
           {/* Heading */}
-          <h1 className="text-5xl font-extrabold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl leading-[1.05]">
+          <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05]">
             The Complete
             <span className="block mt-1 bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
               Influencer Marketing Platform
