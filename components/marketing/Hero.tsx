@@ -18,17 +18,11 @@ export function Hero() {
       <div className="relative mx-auto max-w-7xl px-6 pt-36 pb-20 sm:pt-44 sm:pb-28 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
 
-          {/* Badge */}
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 px-4 py-1.5 text-sm font-medium text-violet-300 backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse" />
-            Trusted by 500+ influencer agencies
-          </div>
-
           {/* Heading */}
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl leading-[1.05]">
             {`The Complete`}
             <span className="block mt-1 bg-gradient-to-r from-violet-400 via-fuchsia-400 to-violet-400 bg-clip-text text-transparent">
-              Influencer Agency OS
+              Influencer Marketing Platform
             </span>
           </h1>
 
