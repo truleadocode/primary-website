@@ -3,7 +3,7 @@ import { CheckCircle, ArrowRight, Sparkles } from 'lucide-react'
 
 const features = [
   { category: 'Campaigns', items: ['Unlimited active campaigns', 'Multi-stage approval workflows', 'Campaign briefs & templates', 'Budget tracking & allocation'] },
-  { category: 'Creator Discovery', items: ['OnSocial-powered search', 'Access to millions of verified creators', 'Unlock contact details & audience insights', 'Creator profile management'] },
+  { category: 'Creator Discovery', items: ['Truleado creator search', 'Access to millions of verified creators', 'Unlock contact details & audience insights', 'Creator profile management'] },
   { category: 'Team & Clients', items: ['Unlimited team members', 'Role-based access control', 'Secure client portal', 'Multi-client management'] },
   { category: 'Analytics & Finance', items: ['Pre & post-launch analytics', 'One-click client reports', 'Creator payment tracking', 'Multi-currency support'] },
   { category: 'Platform', items: ['Creator portal (free for creators)', 'Enterprise-grade security', 'Full audit logs', 'Priority support'] },

@@ -9,8 +9,7 @@ import {
   Shield,
   CheckCircle,
   SlidersHorizontal,
-  Instagram,
-  Youtube,
+  Globe,
   TrendingUp,
 } from 'lucide-react'
 
@@ -97,10 +96,10 @@ export function Features() {
                 <Search className="h-6 w-6 text-white" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2 tracking-tight">
-                Creator Discovery Powered by OnSocial
+                Creator Discovery
               </h3>
               <p className="text-blue-100 text-sm leading-relaxed max-w-sm">
-                Access millions of verified influencers across Instagram, YouTube, and TikTok. Unlock contact details, audience insights, and engagement metrics.
+                Access millions of verified influencers across all major platforms. Unlock contact details, audience insights, and engagement metrics.
               </p>
 
               {/* Mini search UI mockup */}
@@ -114,8 +113,8 @@ export function Features() {
                 </div>
                 <div className="flex gap-2 flex-wrap">
                   {[
-                    { label: 'Instagram', icon: Instagram },
-                    { label: 'YouTube', icon: Youtube },
+                    { label: 'All Platforms', icon: Globe },
+                    { label: 'Top Creators', icon: Star },
                   ].map(({ label, icon: Icon }) => (
                     <div key={label} className="flex items-center gap-1 rounded-full bg-white/20 border border-white/30 px-2.5 py-1">
                       <Icon className="h-3 w-3 text-white" />

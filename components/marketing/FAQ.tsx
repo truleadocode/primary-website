@@ -6,7 +6,7 @@ import { Plus, Minus } from 'lucide-react'
 const faqs = [
   {
     question: 'How does the creator discovery work?',
-    answer: 'Our OnSocial-powered discovery tool lets you search millions of verified influencers across Instagram, YouTube, and TikTok. Use credits to unlock contact details and audience insights—perfect for agencies that need to find creators fast.',
+    answer: "Truleado's built-in discovery tool lets you search millions of verified influencers across all major platforms. Use credits to unlock contact details and audience insights—perfect for agencies that need to find creators fast.",
   },
   {
     question: 'Can I manage multiple clients and their campaigns?',

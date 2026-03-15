@@ -17,7 +17,7 @@ const steps = [
   {
     step: '02',
     title: 'Discover & Onboard Creators',
-    description: 'Use our OnSocial-powered discovery tool to find verified influencers. Unlock contact details, import profiles, and build lasting relationships.',
+    description: "Use Truleado's built-in discovery tool to find verified influencers. Unlock contact details, import profiles, and build lasting relationships.",
     icon: Search,
     color: 'text-indigo-600',
     bg: 'bg-indigo-50',
