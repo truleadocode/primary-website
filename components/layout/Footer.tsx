@@ -106,7 +106,7 @@ export function Footer() {
             {/* Brand column */}
             <div className="col-span-2">
               <Link href="/" className="inline-flex items-center gap-2.5" aria-label="Truleado Home">
-                <img src="/Truleado Logo Blue.png" alt="Truleado" className="h-8 w-auto" />
+                <img src="/Truleado Logo Blue.png" alt="Truleado" className="h-20 w-auto" />
                 <span className="text-lg font-black text-slate-900 tracking-tight">Truleado</span>
               </Link>
               <p className="mt-4 text-sm leading-relaxed text-slate-500 max-w-xs">

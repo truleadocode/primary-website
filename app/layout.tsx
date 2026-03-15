@@ -56,9 +56,9 @@ export const metadata: Metadata = {
 
   // Icons
   icons: {
-    icon: '/logo.svg',
-    shortcut: '/logo.svg',
-    apple: '/logo.svg',
+    icon: '/Truleado Logo Blue.png',
+    shortcut: '/Truleado Logo Blue.png',
+    apple: '/Truleado Logo Blue.png',
   },
 
   // Open Graph for social sharing
@@ -127,9 +127,9 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-title": "Truleado",
     "format-detection": "telephone=no",
     "mobile-web-app-capable": "yes",
-    "msapplication-TileColor": "#6366f1",
+    "msapplication-TileColor": "#2563EB",
     "msapplication-tap-highlight": "no",
-    "theme-color": "#6366f1",
+    "theme-color": "#2563EB",
   },
 };
 

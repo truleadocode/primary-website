@@ -50,7 +50,7 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-4">
       <nav
-        className={`mx-auto flex max-w-5xl items-center justify-between rounded-full px-4 sm:px-6 h-14 transition-all duration-300 ${
+        className={`mx-auto flex max-w-5xl items-center justify-between rounded-full px-4 sm:px-6 h-16 transition-all duration-300 ${
           scrolled
             ? 'bg-white/95 backdrop-blur-2xl border border-slate-200 shadow-lg shadow-slate-900/5'
             : 'bg-white/70 backdrop-blur-xl border border-slate-200/60'
@@ -60,10 +60,8 @@ export function Header() {
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/Truleado Logo Blue.png" alt="Truleado" className="h-7 w-auto" />
-            <span className="text-[15px] font-black text-slate-900 tracking-tight">
-              Truleado
-            </span>
+            <img src="/Truleado Logo Blue.png" alt="Truleado" className="h-14 w-auto" />
+            <span className="text-[15px] font-black text-slate-900 tracking-tight">Truleado</span>
           </Link>
         </div>
 
