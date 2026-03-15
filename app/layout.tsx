@@ -1,5 +1,20 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+
+// Load Inter font
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jakarta',
+  weight: ['400', '500', '600', '700', '800'],
+});
 
 // Comprehensive SEO metadata for better discoverability
 export const metadata: Metadata = {
@@ -284,7 +299,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* RSS Feed for blog */}
         <link rel="alternate" type="application/rss+xml" title="Truleado Blog RSS" href="/blog/feed.xml" />
       </head>
-      <body className="antialiased">
+      <body className={`antialiased ${inter.variable} ${plusJakarta.variable} font-sans`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

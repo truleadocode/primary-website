@@ -1,32 +1,40 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronDown, MessageCircle } from 'lucide-react'
+import { Plus, Minus } from 'lucide-react'
 
 const faqs = [
   {
-    question: 'Is Truleado really free during beta?',
-    answer: 'Yes! During our beta period, you get full access to all features completely free. No credit card required. We want early adopters to help us shape the product.',
+    question: 'How does the creator discovery work?',
+    answer: 'Our OnSocial-powered discovery tool lets you search millions of verified influencers across Instagram, YouTube, and TikTok. Use credits to unlock contact details and audience insights—perfect for agencies that need to find creators fast.',
   },
   {
-    question: 'How many team members can I add?',
-    answer: 'On the Starter plan, you can add up to 5 team members. Professional and Enterprise plans offer unlimited team members with custom roles and permissions.',
+    question: 'Can I manage multiple clients and their campaigns?',
+    answer: 'Absolutely. Truleado is designed for agencies managing multiple clients. Each Account Manager can own multiple clients, and you can run unlimited campaigns with role-based access control that keeps client data separated.',
   },
   {
-    question: 'Can clients access the platform?',
-    answer: 'Absolutely! You can give clients secure portal access to review campaigns, approve deliverables, and track performance—all without overwhelming them with agency-level features.',
+    question: 'How do approvals and workflows work?',
+    answer: 'Set up custom multi-stage approval workflows for each client. Internal agency approvals happen first, then client approvals. Everything is tracked with audit logs—you always know who approved what and when.',
   },
   {
-    question: 'Do creators/influencers need to pay?',
-    answer: 'No, Truleado is completely free for creators. They can create profiles, receive campaign invites, submit deliverables, and track their performance at no cost.',
+    question: 'Do creators pay to use the platform?',
+    answer: 'No. Truleado is completely free for creators. They get their own portal to view briefs, submit content, track payments, and monitor campaign performance—at zero cost.',
   },
   {
-    question: 'Can I customize workflows for different clients?',
-    answer: 'Yes! You can create custom approval workflows, templates, and processes for each client. The Professional plan includes advanced customization options.',
+    question: 'How does the finance and budgeting system work?',
+    answer: 'Track budgets at the campaign level with multi-currency support. Log expenses, manage creator payments, and generate financial reports. Ideal for agencies that need to maintain profitability across multiple clients.',
   },
   {
-    question: 'Is my data secure?',
-    answer: 'Security is our top priority. We use enterprise-grade encryption, SOC 2 compliant infrastructure, and regular security audits to keep your data safe.',
+    question: 'Is my agency data secure?',
+    answer: 'Security is a top priority. We use enterprise-grade encryption, SOC 2 compliant infrastructure, and comprehensive audit logging. Your client data, creator information, and financial details are fully protected.',
+  },
+  {
+    question: 'Can I customize the platform for my workflow?',
+    answer: 'Yes. Configure approval flows, customize fields, set up templates, and adapt the platform to match your exact processes. The Professional plan includes advanced customization options.',
+  },
+  {
+    question: 'What about analytics and reporting?',
+    answer: 'Get comprehensive analytics for both pre and post-campaign performance. Track engagement rates, audience demographics, ROI, and generate professional reports for clients with one click.',
   },
 ]
 
@@ -36,57 +44,66 @@ export function FAQ() {
   return (
     <section className="py-24 sm:py-32 bg-slate-50">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
+
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-indigo-600 ring-1 ring-inset ring-indigo-500/20 shadow-sm">
-            <MessageCircle className="h-3.5 w-3.5" />
+        <div className="text-center mb-14">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-violet-600 ring-1 ring-inset ring-violet-500/20 shadow-sm">
             FAQ
           </div>
-          <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
             Frequently Asked
-            <span className="block bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Questions</span>
+            <span className="block bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">
+              Questions
+            </span>
           </h2>
         </div>
 
-        {/* FAQ List */}
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm"
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-5 text-left flex items-center justify-between gap-4"
-              >
-                <span className="text-base font-semibold text-slate-900">
-                  {faq.question}
-                </span>
-                <ChevronDown
-                  className={`h-5 w-5 text-slate-400 transition-transform duration-200 ${
-                    openIndex === index ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
+        {/* Accordion */}
+        <div className="space-y-3">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index
+            return (
               <div
-                className={`px-6 overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'pb-5 max-h-96' : 'max-h-0'
+                key={index}
+                className={`rounded-2xl border transition-colors duration-150 overflow-hidden ${
+                  isOpen ? 'bg-white border-violet-100 shadow-sm' : 'bg-white border-slate-200'
                 }`}
               >
-                <p className="text-slate-600 leading-relaxed">
-                  {faq.answer}
-                </p>
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 cursor-pointer"
+                  aria-expanded={isOpen}
+                >
+                  <span className={`text-base font-semibold transition-colors duration-150 ${isOpen ? 'text-violet-700' : 'text-slate-900'}`}>
+                    {faq.question}
+                  </span>
+                  <div className={`shrink-0 h-7 w-7 rounded-full flex items-center justify-center transition-colors duration-150 ${isOpen ? 'bg-violet-100' : 'bg-slate-100'}`}>
+                    {isOpen
+                      ? <Minus className="h-3.5 w-3.5 text-violet-600" />
+                      : <Plus className="h-3.5 w-3.5 text-slate-500" />
+                    }
+                  </div>
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-200 ease-out ${
+                    isOpen ? 'max-h-80 pb-5' : 'max-h-0'
+                  }`}
+                >
+                  <p className="px-6 text-slate-600 text-sm leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
-        {/* Contact CTA */}
-        <div className="mt-12 text-center">
-          <p className="text-slate-600">
+        {/* Contact link */}
+        <div className="mt-10 text-center">
+          <p className="text-slate-500 text-sm">
             Still have questions?{' '}
-            <a href="mailto:hello@truleado.com" className="font-semibold text-indigo-600 hover:text-indigo-500">
-              Contact our team
+            <a href="mailto:hello@truleado.com" className="font-semibold text-violet-600 hover:text-violet-700 transition-colors">
+              Chat with our team →
             </a>
           </p>
         </div>

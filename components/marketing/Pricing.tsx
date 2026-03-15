@@ -1,140 +1,81 @@
 import Link from 'next/link'
 import { CheckCircle, ArrowRight, Sparkles } from 'lucide-react'
 
-const plans = [
-  {
-    name: 'Starter',
-    description: 'Perfect for small agencies getting started',
-    price: 'Free',
-    priceDetail: 'during beta',
-    features: [
-      'Up to 5 team members',
-      '10 active campaigns',
-      'Basic analytics',
-      'Email support',
-      'Client portal access',
-    ],
-    cta: 'Get Started Free',
-    href: 'https://tally.so/r/WOzzGP',
-    popular: false,
-  },
-  {
-    name: 'Professional',
-    description: 'For growing agencies with bigger needs',
-    price: '$49',
-    priceDetail: '/month',
-    features: [
-      'Unlimited team members',
-      'Unlimited campaigns',
-      'Advanced analytics & reports',
-      'Priority support',
-      'Custom workflows',
-      'White-label options',
-      'API access',
-    ],
-    cta: 'Join Waitlist',
-    href: 'https://tally.so/r/WOzzGP',
-    popular: true,
-  },
-  {
-    name: 'Enterprise',
-    description: 'Custom solutions for large agencies',
-    price: 'Custom',
-    priceDetail: 'pricing',
-    features: [
-      'Everything in Professional',
-      'Dedicated account manager',
-      'Custom integrations',
-      'SLA guarantee',
-      'On-premise deployment',
-      'Advanced security',
-    ],
-    cta: 'Contact Sales',
-    href: 'mailto:hello@truleado.com',
-    popular: false,
-  },
+const features = [
+  { category: 'Campaigns', items: ['Unlimited active campaigns', 'Multi-stage approval workflows', 'Campaign briefs & templates', 'Budget tracking & allocation'] },
+  { category: 'Creator Discovery', items: ['OnSocial-powered search', 'Access to millions of verified creators', 'Unlock contact details & audience insights', 'Creator profile management'] },
+  { category: 'Team & Clients', items: ['Unlimited team members', 'Role-based access control', 'Secure client portal', 'Multi-client management'] },
+  { category: 'Analytics & Finance', items: ['Pre & post-launch analytics', 'One-click client reports', 'Creator payment tracking', 'Multi-currency support'] },
+  { category: 'Platform', items: ['Creator portal (free for creators)', 'Enterprise-grade security', 'Full audit logs', 'Priority support'] },
 ]
 
 export function Pricing() {
   return (
     <section id="pricing" className="py-24 sm:py-32 bg-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl px-6 lg:px-8">
+
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center mb-16">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-1.5 text-xs font-semibold text-green-700 ring-1 ring-inset ring-green-600/20">
+        <div className="text-center mb-12">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-1.5 text-xs font-semibold text-emerald-700 ring-1 ring-inset ring-emerald-600/20">
             <Sparkles className="h-3.5 w-3.5" />
             Free During Beta
           </div>
-          <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-            Simple, Transparent
-            <span className="block bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Pricing</span>
+          <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+            Everything included.
+            <span className="block bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">
+              Free while in beta.
+            </span>
           </h2>
-          <p className="mt-4 text-lg text-slate-600">
-            Start free, upgrade when you're ready. No hidden fees.
+          <p className="mt-4 text-lg text-slate-500 max-w-xl mx-auto">
+            No credit card required. No feature limits. Full access to every tool your agency needs—at zero cost during our beta.
           </p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={`relative rounded-2xl p-8 ${
-                plan.popular
-                  ? 'bg-slate-900 text-white ring-2 ring-indigo-500 shadow-2xl shadow-indigo-500/20 scale-105'
-                  : 'bg-white border border-slate-200 shadow-sm'
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full text-xs font-bold text-white">
-                  Most Popular
-                </div>
-              )}
-
-              <div className="mb-6">
-                <h3 className={`text-lg font-bold ${plan.popular ? 'text-white' : 'text-slate-900'}`}>
-                  {plan.name}
-                </h3>
-                <p className={`mt-1 text-sm ${plan.popular ? 'text-slate-300' : 'text-slate-500'}`}>
-                  {plan.description}
-                </p>
+        {/* Single plan card */}
+        <div className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+          {/* Card top */}
+          <div className="bg-slate-950 px-8 py-10 sm:px-12">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+              <div>
+                <div className="text-sm font-semibold text-violet-400 mb-1">Beta Plan</div>
+                <div className="text-5xl font-black text-white">Free</div>
+                <div className="mt-1 text-slate-400 text-sm">Full access · No credit card · Cancel anytime</div>
               </div>
-
-              <div className="mb-6">
-                <span className={`text-4xl font-black ${plan.popular ? 'text-white' : 'text-slate-900'}`}>
-                  {plan.price}
-                </span>
-                <span className={`text-sm ${plan.popular ? 'text-slate-300' : 'text-slate-500'}`}>
-                  {' '}{plan.priceDetail}
-                </span>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <CheckCircle className={`h-5 w-5 flex-shrink-0 ${plan.popular ? 'text-indigo-400' : 'text-green-500'}`} />
-                    <span className={`text-sm ${plan.popular ? 'text-slate-300' : 'text-slate-600'}`}>
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <Link href={plan.href}>
-                <button
-                  className={`w-full py-3 px-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 ${
-                    plan.popular
-                      ? 'bg-white text-slate-900 hover:bg-slate-100'
-                      : 'bg-slate-900 text-white hover:bg-slate-800'
-                  }`}
-                >
-                  {plan.cta}
-                  <ArrowRight className="h-4 w-4" />
+              <Link href="https://app.truleado.com/signup">
+                <button className="group inline-flex items-center justify-center cursor-pointer px-8 py-3.5 text-base font-bold text-slate-900 bg-white rounded-xl hover:bg-slate-100 transition-colors duration-150 whitespace-nowrap">
+                  Start for Free
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-150 group-hover:translate-x-0.5" />
                 </button>
               </Link>
             </div>
-          ))}
+          </div>
+
+          {/* Feature grid */}
+          <div className="px-8 py-10 sm:px-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
+              {features.map((group) => (
+                <div key={group.category}>
+                  <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">{group.category}</div>
+                  <ul className="space-y-2.5">
+                    {group.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <CheckCircle className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                        <span className="text-sm text-slate-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+
+        <p className="mt-6 text-center text-sm text-slate-400">
+          Free for creators too.{' '}
+          <a href="mailto:hello@truleado.com" className="text-violet-600 hover:text-violet-700 font-medium transition-colors">
+            Questions? Chat with us.
+          </a>
+        </p>
       </div>
     </section>
   )

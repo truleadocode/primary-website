@@ -1,0 +1,10 @@
+# llms.txt
+# This file is intended as a friendly indicator for large language models (LLMs) and AI crawlers.
+# It is not a replacement for robots.txt, but serves as an additional hint.
+
+# Allowed LLMs (common GPT-style crawlers):
+GPTBot
+ChatGPT-User
+Claude-Web
+Anthropic-AI
+Google-Extended
