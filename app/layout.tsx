@@ -166,6 +166,9 @@ const jsonLd = {
         "https://linkedin.com/company/truleado",
         "https://instagram.com/truleado",
         "https://youtube.com/@truleado",
+        "https://www.threads.com/@truleado",
+        "https://www.facebook.com/truleado/",
+        "https://www.tiktok.com/@truleado",
         "https://www.reddit.com/r/truleado/",
       ],
       "contactPoint": {
