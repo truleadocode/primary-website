@@ -24,7 +24,7 @@ export function Hero() {
 
           {/* Description */}
           <p className="mt-6 text-lg leading-8 text-slate-500 sm:mt-8 sm:text-xl max-w-2xl mx-auto">
-            Streamline your entire workflow—from creator discovery to campaign execution, approvals, and ROI reporting. Built for agencies managing multiple clients.
+            The influencer marketing software agencies trust to streamline creator discovery, campaign execution, approvals, and ROI reporting—all from one workspace.
           </p>
 
           {/* CTAs */}

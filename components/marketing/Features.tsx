@@ -81,7 +81,7 @@ export function Features() {
             </span>
           </h2>
           <p className="mt-5 text-lg text-slate-500 leading-relaxed max-w-xl mx-auto">
-            From campaign kickoff to performance reporting, manage it all from one powerful platform.
+            From campaign kickoff to performance reporting, our influencer marketing software manages it all from one powerful platform.
           </p>
         </div>
 

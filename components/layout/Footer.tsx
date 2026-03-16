@@ -83,7 +83,7 @@ export function Footer() {
 
   return (
     <footer className="bg-slate-50 text-slate-500 border-t border-slate-200" aria-labelledby="footer-heading">
-      <h2 id="footer-heading" className="sr-only">Footer</h2>
+      <h2 id="footer-heading" className="sr-only">Truleado — Influencer Marketing Software</h2>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Newsletter Section */}
@@ -91,7 +91,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-lg font-semibold text-slate-900">Stay in the loop</h3>
-              <p className="mt-1 text-sm text-slate-500">Get the latest updates on features, tips, and agency insights.</p>
+              <p className="mt-1 text-sm text-slate-500">Get the latest updates on influencer marketing software features, tips, and agency insights.</p>
             </div>
             <div className="flex gap-3 w-full md:w-auto">
               <div className="relative flex-1 md:w-64">
@@ -119,7 +119,7 @@ export function Footer() {
                 <span className="text-lg font-black text-slate-900 tracking-tight">Truleado</span>
               </Link>
               <p className="mt-4 text-sm leading-relaxed text-slate-500 max-w-xs">
-                The complete influencer marketing platform built for agencies. Manage campaigns, teams, clients, and creators from one workspace.
+                The complete influencer marketing software built for agencies. Manage campaigns, teams, clients, and creators from one workspace.
               </p>
 
               {/* Social */}
@@ -191,7 +191,7 @@ export function Footer() {
             &copy; {currentYear} Truleado. All rights reserved.
           </p>
           <p className="text-sm text-slate-400">
-            Built with love for agencies that move fast.
+            Influencer marketing software built for agencies that move fast.
           </p>
         </div>
       </div>

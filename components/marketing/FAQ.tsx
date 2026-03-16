@@ -6,11 +6,11 @@ import { Plus, Minus } from 'lucide-react'
 const faqs = [
   {
     question: 'How does the creator discovery work?',
-    answer: "Truleado's built-in discovery tool lets you search millions of verified influencers across all major platforms. Use credits to unlock contact details and audience insights—perfect for agencies that need to find creators fast.",
+    answer: "Truleado's influencer marketing software includes a built-in discovery tool that lets you search millions of verified influencers across all major platforms. Use credits to unlock contact details and audience insights—perfect for agencies that need to find creators fast.",
   },
   {
     question: 'Can I manage multiple clients and their campaigns?',
-    answer: 'Absolutely. Truleado is designed for agencies managing multiple clients. Each Account Manager can own multiple clients, and you can run unlimited campaigns with role-based access control that keeps client data separated.',
+    answer: 'Absolutely. As an all-in-one influencer marketing software, Truleado is designed for agencies managing multiple clients. Each Account Manager can own multiple clients, and you can run unlimited campaigns with role-based access control that keeps client data separated.',
   },
   {
     question: 'How do approvals and workflows work?',
@@ -56,6 +56,7 @@ export function FAQ() {
               Questions
             </span>
           </h2>
+          <p className="mt-4 text-sm text-slate-500">Everything you need to know about our influencer marketing software.</p>
         </div>
 
         {/* Accordion */}
