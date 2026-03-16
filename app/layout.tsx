@@ -20,10 +20,10 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   // Core metadata
   title: {
-    default: "Truleado - #1 Influencer Marketing Platform | Connect Brands with Creators",
+    default: "Truleado - Influencer Marketing Software for Agencies | Manage Campaigns & Creators",
     template: "%s | Truleado",
   },
-  description: "Truleado is the leading influencer marketing platform connecting brands with verified creators. Discover influencers, manage campaigns, track ROI, and streamline your influencer partnerships. Start your free 7-day trial today.",
+  description: "Truleado is the complete influencer marketing software built for agencies. Discover creators, manage multi-client campaigns, track ROI, and streamline approvals—all from one workspace. Free to get started, no credit card required.",
   
   // Keywords for search engines and LLMs
   keywords: [
@@ -67,14 +67,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://truleado.com",
     siteName: "Truleado",
-    title: "Truleado - #1 Influencer Marketing Platform",
-    description: "Connect with 50,000+ verified creators. Manage campaigns, track ROI, and scale your influencer marketing. Free 7-day trial, no credit card required.",
+    title: "Truleado - Influencer Marketing Software for Agencies",
+    description: "The complete influencer marketing software for agencies. Manage campaigns, discover creators, track ROI, and streamline client approvals—all from one workspace. Free to get started.",
     images: [
       {
         url: "https://truleado.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Truleado - Influencer Marketing Platform",
+        alt: "Truleado - Influencer Marketing Software for Agencies",
       },
     ],
   },
@@ -82,8 +82,8 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "Truleado - #1 Influencer Marketing Platform",
-    description: "Connect with 50,000+ verified creators. Manage campaigns, track ROI, and scale your influencer marketing.",
+    title: "Truleado - Influencer Marketing Software for Agencies",
+    description: "The complete influencer marketing software for agencies. Manage campaigns, discover creators, and track ROI—all from one workspace.",
     images: ["https://truleado.com/og-image.png"],
     creator: "@truleado",
     site: "@truleado",
@@ -155,16 +155,18 @@ const jsonLd = {
       "url": "https://truleado.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://truleado.com/logo.svg",
+        "url": "https://truleado.com/Truleado Logo Blue.png",
         "width": 200,
         "height": 60,
       },
-      "description": "Truleado is the leading influencer marketing platform connecting brands with verified creators for successful campaign partnerships.",
+      "description": "Truleado is the complete influencer marketing software built for agencies. Manage campaigns, teams, clients, and creators from one workspace.",
       "foundingDate": "2024",
       "sameAs": [
         "https://twitter.com/truleado",
         "https://linkedin.com/company/truleado",
         "https://instagram.com/truleado",
+        "https://youtube.com/@truleado",
+        "https://www.reddit.com/r/truleado/",
       ],
       "contactPoint": {
         "@type": "ContactPoint",
@@ -177,45 +179,33 @@ const jsonLd = {
       "@id": "https://truleado.com/#website",
       "url": "https://truleado.com",
       "name": "Truleado",
-      "description": "Influencer Marketing Platform for Brands and Creators",
+      "description": "Influencer Marketing Software for Agencies",
       "publisher": { "@id": "https://truleado.com/#organization" },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://truleado.com/search?q={search_term_string}",
-        },
-        "query-input": "required name=search_term_string",
-      },
     },
     {
       "@type": "SoftwareApplication",
+      "@id": "https://truleado.com/#software",
       "name": "Truleado",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
+      "url": "https://truleado.com",
       "offers": {
         "@type": "Offer",
-        "price": "49",
+        "price": "0",
         "priceCurrency": "USD",
-        "priceValidUntil": "2025-12-31",
         "availability": "https://schema.org/InStock",
+        "description": "Free to get started. No credit card required.",
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "500",
-        "bestRating": "5",
-        "worstRating": "1",
-      },
-      "description": "All-in-one influencer marketing platform for discovering creators, managing campaigns, and tracking ROI.",
+      "description": "All-in-one influencer marketing software for agencies. Discover creators, manage multi-client campaigns, track ROI, handle approvals, and manage finances from one workspace.",
       "featureList": [
-        "Influencer Discovery with 50,000+ verified creators",
-        "Campaign Management Dashboard",
-        "Real-time Analytics and ROI Tracking",
-        "Contract Management",
-        "Direct Messaging with Creators",
-        "Payment Tracking",
-        "Performance Reports",
+        "Creator Discovery — search millions of verified influencers across all major platforms",
+        "End-to-End Campaign Management with multi-stage approval workflows",
+        "Smart Team Collaboration with role-based access control",
+        "Secure Client Portal for content review and approvals",
+        "Advanced Analytics and one-click ROI reporting",
+        "Complete Finance Management with multi-currency support",
+        "Creator Portal — free for creators",
+        "Enterprise-grade security and full audit logs",
       ],
     },
     {
@@ -226,7 +216,7 @@ const jsonLd = {
           "name": "What is Truleado?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Truleado is an influencer marketing platform that connects brands with verified creators. It helps businesses discover influencers, manage campaigns, track performance, and measure ROI all in one place.",
+            "text": "Truleado is an all-in-one influencer marketing software built for agencies. It lets you manage campaigns, discover verified creators, handle client approvals, track ROI, and manage finances—all from one workspace.",
           },
         },
         {
@@ -234,7 +224,7 @@ const jsonLd = {
           "name": "How much does Truleado cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Truleado offers a 7-day free trial, followed by $49/month for brands. The platform is 100% free for creators and influencers.",
+            "text": "Truleado is free to get started with no credit card required. Full access to every feature your agency needs at zero cost.",
           },
         },
         {
@@ -242,23 +232,31 @@ const jsonLd = {
           "name": "Is Truleado free for creators?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes! Truleado is completely free for creators and influencers. You can create a profile, get discovered by brands, manage contracts, and track payments at no cost.",
+            "text": "Yes. Truleado is completely free for creators. They get their own portal to view briefs, submit content, track payments, and monitor campaign performance—at zero cost.",
           },
         },
         {
           "@type": "Question",
-          "name": "How many influencers are on Truleado?",
+          "name": "Can I manage multiple clients and campaigns on Truleado?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Truleado has over 50,000 verified creators across various niches including fashion, beauty, fitness, tech, travel, food, and more.",
+            "text": "Absolutely. As an all-in-one influencer marketing software, Truleado is designed for agencies managing multiple clients. Each Account Manager can own multiple clients and run unlimited campaigns with role-based access control that keeps client data separated.",
           },
         },
         {
           "@type": "Question",
-          "name": "What features does Truleado offer?",
+          "name": "How does creator discovery work on Truleado?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Truleado offers influencer discovery, campaign management, contract management, direct messaging, analytics & ROI tracking, payment tracking, and detailed performance reports.",
+            "text": "Truleado's influencer marketing software includes a built-in discovery tool that lets you search millions of verified influencers across all major platforms. Use credits to unlock contact details and audience insights.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "How do campaign approvals and workflows work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Set up custom multi-stage approval workflows for each client. Internal agency approvals happen first, then client approvals. Everything is tracked with audit logs so you always know who approved what and when.",
           },
         },
       ],
