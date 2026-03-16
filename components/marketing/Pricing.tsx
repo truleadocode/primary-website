@@ -18,16 +18,16 @@ export function Pricing() {
         <div className="text-center mb-12">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold text-blue-700 ring-1 ring-inset ring-blue-600/20">
             <Sparkles className="h-3.5 w-3.5" />
-            Free During Beta
+            Free to Get Started
           </div>
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Everything included.
             <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              Free while in beta.
+              Free to get started.
             </span>
           </h2>
           <p className="mt-4 text-lg text-slate-500 max-w-xl mx-auto">
-            No credit card required. No feature limits. Full access to every tool your agency needs—at zero cost during our beta.
+            No credit card required. No feature limits. Full access to every tool your agency needs—at zero cost.
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export function Pricing() {
           <div className="bg-gradient-to-r from-blue-600 to-indigo-700 px-5 py-8 sm:px-12 sm:py-10">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
               <div>
-                <div className="text-sm font-semibold text-blue-200 mb-1">Beta Plan</div>
+                <div className="text-sm font-semibold text-blue-200 mb-1">Starter Plan</div>
                 <div className="text-5xl font-black text-white">Free</div>
                 <div className="mt-1 text-blue-100 text-sm">Full access · No credit card · Cancel anytime</div>
               </div>

@@ -18,7 +18,7 @@ export function CTA() {
             {/* Badge */}
             <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-4 py-2 text-sm font-medium text-white">
               <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
-              Limited Beta Access
+              Now Available
             </div>
 
             {/* Heading */}
