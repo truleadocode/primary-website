@@ -102,7 +102,7 @@ export function FAQ() {
         <div className="mt-10 text-center">
           <p className="text-slate-500 text-sm">
             Still have questions?{' '}
-            <a href="mailto:hello@truleado.com" className="font-semibold text-blue-600 hover:text-blue-700 transition-colors">
+            <a href="mailto:support@truleado.com" className="font-semibold text-blue-600 hover:text-blue-700 transition-colors">
               Chat with our team →
             </a>
           </p>

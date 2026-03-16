@@ -72,7 +72,7 @@ export function Pricing() {
 
         <p className="mt-6 text-center text-sm text-slate-400">
           Free for creators too.{' '}
-          <a href="mailto:hello@truleado.com" className="text-blue-600 hover:text-blue-700 font-medium transition-colors">
+          <a href="mailto:support@truleado.com" className="text-blue-600 hover:text-blue-700 font-medium transition-colors">
             Questions? Chat with us.
           </a>
         </p>

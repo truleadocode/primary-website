@@ -24,10 +24,10 @@ const footerLinks = {
     { label: 'Integrations', href: '/integrations' },
   ],
   Company: [
-    { label: 'About', href: 'mailto:hello@truleado.com?subject=About%20Truleado' },
-    { label: 'Careers', href: 'mailto:hello@truleado.com?subject=Careers' },
+    { label: 'About', href: 'mailto:support@truleado.com?subject=About%20Truleado' },
+    { label: 'Careers', href: 'mailto:support@truleado.com?subject=Careers' },
     { label: 'Resources', href: 'https://blog.truleado.com' },
-    { label: 'Contact', href: 'mailto:hello@truleado.com' },
+    { label: 'Contact', href: 'mailto:support@truleado.com' },
   ],
   Resources: [
     { label: 'Help Center', href: '/help' },

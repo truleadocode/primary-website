@@ -35,7 +35,7 @@ export function Hero() {
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-150 group-hover:translate-x-1" />
               </button>
             </Link>
-            <Link href="https://tally.so/r/WOzzGP">
+            <Link href="https://outlook.office.com/book/TruleadoDemo@truleado.com/?ismsaljsauthenabled">
               <button className="group inline-flex items-center justify-center cursor-pointer px-8 py-4 text-base font-semibold text-slate-700 bg-white rounded-xl border border-slate-200 hover:border-blue-300 hover:text-blue-700 transition-colors duration-150 min-w-[200px]">
                 Book a Demo
               </button>
