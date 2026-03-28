@@ -313,6 +313,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* End Google Tag Manager (noscript) */}
 
         {children}
+
+        {/* ElevenLabs ConvAI Widget */}
+        <elevenlabs-convai agent-id="agent_4401kmtwfkgff17vrb8t7mqfrvh1"></elevenlabs-convai>
+        <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+        {/* Patch widget alignment to bottom-left */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            function init() {
+              var widget = document.querySelector('elevenlabs-convai');
+              if (!widget) { setTimeout(init, 100); return; }
+              var sr = widget.shadowRoot;
+              if (!sr) { setTimeout(init, 100); return; }
+              var style = document.createElement('style');
+              style.textContent = '.overlay { align-items: flex-start !important; }';
+              sr.appendChild(style);
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', init);
+            } else {
+              init();
+            }
+          })();
+        `}} />
       </body>
     </html>
   );

@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* ElevenLabs ConvAI widget — keep within viewport on left side */
+elevenlabs-convai {
+  --el-overlay-padding: 16px;
+}
+
+
 /* Font configuration */
 @layer base {
   html {
