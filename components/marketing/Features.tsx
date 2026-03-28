@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Search,
   Briefcase,
@@ -12,6 +14,7 @@ import {
   Globe,
   TrendingUp,
 } from 'lucide-react'
+import { useInView } from '@/hooks/useInView'
 
 const features = [
   {
@@ -65,12 +68,16 @@ const features = [
 ]
 
 export function Features() {
+  const { ref: headerRef, inView: headerInView } = useInView()
+  const { ref: bentoRef, inView: bentoInView } = useInView()
+  const { ref: gridRef, inView: gridInView } = useInView()
+
   return (
     <section id="features" className="py-24 sm:py-32 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section header */}
-        <div className="mx-auto max-w-2xl text-center mb-16 sm:mb-20">
+        <div ref={headerRef} className={`mx-auto max-w-2xl text-center mb-16 sm:mb-20 reveal ${headerInView ? 'is-visible' : ''}`}>
           <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-1.5 text-xs font-semibold text-blue-600 ring-1 ring-inset ring-blue-500/20">
             Platform Features
           </div>
@@ -86,10 +93,13 @@ export function Features() {
         </div>
 
         {/* Bento-style featured cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
+        <div ref={bentoRef} className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
 
           {/* Card 1: Creator Discovery */}
-          <div className="group relative rounded-2xl bg-blue-600 p-8 sm:p-10 overflow-hidden">
+          <div
+            className={`group relative rounded-2xl bg-blue-600 p-8 sm:p-10 overflow-hidden card-lift reveal ${bentoInView ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '0ms' }}
+          >
             <div className="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
             <div className="relative">
               <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
@@ -103,7 +113,7 @@ export function Features() {
               </p>
 
               {/* Mini search UI mockup */}
-              <div className="mt-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 p-4 space-y-3">
+              <div className="mt-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 p-4 space-y-3 transition-transform duration-300 group-hover:scale-[1.02]" style={{ transformOrigin: 'bottom center' }}>
                 <div className="flex items-center gap-2 rounded-lg bg-white/15 px-3 py-2">
                   <Search className="h-3.5 w-3.5 text-blue-200 shrink-0" />
                   <span className="text-xs text-blue-100 truncate min-w-0">fashion beauty lifestyle 100k-500k</span>
@@ -149,7 +159,10 @@ export function Features() {
           </div>
 
           {/* Card 2: Campaign Execution */}
-          <div className="group relative rounded-2xl bg-indigo-600 p-8 sm:p-10 overflow-hidden">
+          <div
+            className={`group relative rounded-2xl bg-indigo-600 p-8 sm:p-10 overflow-hidden card-lift reveal ${bentoInView ? 'is-visible' : ''}`}
+            style={{ transitionDelay: '80ms' }}
+          >
             <div className="absolute top-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
             <div className="relative">
               <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur-sm">
@@ -163,7 +176,7 @@ export function Features() {
               </p>
 
               {/* Mini campaign pipeline mockup */}
-              <div className="mt-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 p-4 space-y-3">
+              <div className="mt-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 p-4 space-y-3 transition-transform duration-300 group-hover:scale-[1.02]" style={{ transformOrigin: 'bottom center' }}>
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-semibold text-white">Nike x Summer Launch</span>
                   <span className="text-xs text-emerald-300 bg-emerald-500/20 border border-emerald-400/30 rounded-full px-2 py-0.5">Active</span>
@@ -203,13 +216,14 @@ export function Features() {
         </div>
 
         {/* Regular feature cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((feature) => {
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {features.map((feature, index) => {
             const Icon = feature.icon
             return (
               <div
                 key={feature.title}
-                className={`group rounded-2xl bg-white p-7 border ${feature.border} hover:shadow-lg hover:shadow-slate-100 transition-shadow duration-200`}
+                className={`group rounded-2xl bg-white p-7 border ${feature.border} card-lift reveal ${gridInView ? 'is-visible' : ''}`}
+                style={{ transitionDelay: `${index * 60}ms` }}
               >
                 <div className={`mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl ${feature.bg}`}>
                   <Icon className={`h-5 w-5 ${feature.accent}`} />

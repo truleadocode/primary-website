@@ -1,6 +1,7 @@
 'use client'
 
 import { Building2, Search, Rocket, TrendingUp } from 'lucide-react'
+import { useInView } from '@/hooks/useInView'
 
 const steps = [
   {
@@ -50,6 +51,9 @@ const steps = [
 ]
 
 export function HowItWorks() {
+  const { ref: headerRef, inView: headerInView } = useInView()
+  const { ref: stepsRef, inView: stepsInView } = useInView()
+
   return (
     <section id="how-it-works" className="relative py-24 sm:py-32 bg-blue-50/50 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -58,7 +62,7 @@ export function HowItWorks() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center mb-16 lg:mb-20">
+        <div ref={headerRef} className={`mx-auto max-w-2xl text-center mb-16 lg:mb-20 reveal ${headerInView ? 'is-visible' : ''}`}>
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-100 px-4 py-1.5 text-xs font-semibold text-blue-700">
             How It Works
           </div>
@@ -74,12 +78,16 @@ export function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {steps.map((step) => {
+        <div ref={stepsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {steps.map((step, index) => {
             const Icon = step.icon
             return (
-              <div key={step.step} className="relative group">
-                <div className={`relative h-full rounded-2xl bg-white border ${step.border} p-7 hover:shadow-lg hover:shadow-blue-100 transition-shadow duration-200`}>
+              <div
+                key={step.step}
+                className={`relative group reveal ${stepsInView ? 'is-visible' : ''}`}
+                style={{ transitionDelay: `${index * 80}ms` }}
+              >
+                <div className={`relative h-full rounded-2xl bg-white border ${step.border} p-7 card-lift`}>
                   {/* Step number badge */}
                   <div className="absolute -top-3.5 left-6">
                     <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold ${step.badge}`}>

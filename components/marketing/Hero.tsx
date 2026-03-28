@@ -15,7 +15,7 @@ export function Hero() {
         <div className="mx-auto max-w-4xl text-center">
 
           {/* Heading */}
-          <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05]">
+          <h1 className="hero-animate text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05]" style={{ animationDelay: '0ms' }}>
             The Complete
             <span className="block mt-1 bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
               Influencer Marketing Platform
@@ -23,27 +23,27 @@ export function Hero() {
           </h1>
 
           {/* Description */}
-          <p className="mt-6 text-lg leading-8 text-slate-500 sm:mt-8 sm:text-xl max-w-2xl mx-auto">
+          <p className="hero-animate mt-6 text-lg leading-8 text-slate-500 sm:mt-8 sm:text-xl max-w-2xl mx-auto" style={{ animationDelay: '80ms' }}>
             The influencer marketing software agencies trust to streamline creator discovery, campaign execution, approvals, and ROI reporting—all from one workspace.
           </p>
 
           {/* CTAs */}
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="hero-animate mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style={{ animationDelay: '160ms' }}>
             <Link href="https://app.truleado.com/signup">
-              <button className="group inline-flex items-center justify-center cursor-pointer px-8 py-4 text-base font-bold text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition-colors duration-150 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/25 min-w-[200px]">
+              <button className="group inline-flex items-center justify-center cursor-pointer px-8 py-4 text-base font-bold text-white bg-blue-600 rounded-xl hover:bg-blue-700 transition-[background-color,transform,box-shadow] duration-150 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/25 active:scale-[0.97] active:translate-y-0 min-w-[200px]">
                 Start Free Trial
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-150 group-hover:translate-x-1" />
               </button>
             </Link>
             <Link href="https://outlook.office.com/book/TruleadoDemo@truleado.com/?ismsaljsauthenabled">
-              <button className="group inline-flex items-center justify-center cursor-pointer px-8 py-4 text-base font-semibold text-slate-700 bg-white rounded-xl border border-slate-200 hover:border-blue-300 hover:text-blue-700 transition-colors duration-150 min-w-[200px]">
+              <button className="group inline-flex items-center justify-center cursor-pointer px-8 py-4 text-base font-semibold text-slate-700 bg-white rounded-xl border border-slate-200 hover:border-blue-300 hover:text-blue-700 transition-[color,border-color,transform] duration-150 hover:-translate-y-0.5 active:scale-[0.97] active:translate-y-0 min-w-[200px]">
                 Book a Demo
               </button>
             </Link>
           </div>
 
           {/* Trust indicators */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-500">
+          <div className="hero-animate mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-500" style={{ animationDelay: '240ms' }}>
             <div className="flex items-center gap-2">
               <CheckCircle className="h-4 w-4 text-blue-500 shrink-0" />
               <span>Free trial — no credit card</span>
@@ -60,7 +60,7 @@ export function Hero() {
         </div>
 
         {/* Dashboard Preview */}
-        <div className="mt-14 mx-auto max-w-5xl">
+        <div className="hero-animate mt-14 mx-auto max-w-5xl" style={{ animationDelay: '360ms' }}>
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-blue-200/50 via-indigo-100/50 to-blue-200/50 rounded-3xl blur-2xl" />
 

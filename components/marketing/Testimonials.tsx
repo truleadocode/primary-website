@@ -1,6 +1,7 @@
 'use client'
 
 import { Star, Quote } from 'lucide-react'
+import { useInView } from '@/hooks/useInView'
 
 const testimonials = [
   {
@@ -30,6 +31,9 @@ const testimonials = [
 ]
 
 export function Testimonials() {
+  const { ref: headerRef, inView: headerInView } = useInView()
+  const { ref: cardsRef, inView: cardsInView } = useInView()
+
   return (
     <section className="py-20 sm:py-28 bg-gradient-to-br from-violet-600 via-violet-700 to-indigo-700 relative overflow-hidden">
       {/* Background pattern */}
@@ -40,10 +44,10 @@ export function Testimonials() {
           backgroundSize: '32px 32px'
         }} />
       </div>
-      
+
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center mb-16">
+        <div ref={headerRef} className={`mx-auto max-w-2xl text-center mb-16 reveal ${headerInView ? 'is-visible' : ''}`}>
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Trusted by Leading Influencer Marketing Agencies
           </h2>
@@ -53,11 +57,12 @@ export function Testimonials() {
         </div>
 
         {/* Testimonials grid */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <div ref={cardsRef} className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="relative rounded-2xl bg-white/10 backdrop-blur-xl p-8 ring-1 ring-white/20 hover:bg-white/15 transition-colors"
+              className={`relative rounded-2xl bg-white/10 backdrop-blur-xl p-8 ring-1 ring-white/20 hover:bg-white/15 hover:-translate-y-1 transition-[background-color,transform] duration-200 reveal ${cardsInView ? 'is-visible' : ''}`}
+              style={{ transitionDelay: cardsInView ? `${index * 80}ms` : '0ms' }}
             >
               {/* Quote icon */}
               <Quote className="absolute top-6 right-6 h-8 w-8 text-white/20" />
@@ -95,4 +100,3 @@ export function Testimonials() {
     </section>
   )
 }
-
