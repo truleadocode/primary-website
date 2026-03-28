@@ -140,7 +140,7 @@ export function Hero() {
                     </div>
 
                     {/* Bottom 2 panels */}
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div className="rounded-xl bg-white p-4 border border-slate-200 shadow-sm">
                         <div className="text-sm font-semibold text-slate-900 mb-3">Recent Activity</div>
                         {[1, 2, 3].map((i) => (

@@ -135,7 +135,7 @@ export default function CampaignManagementPage() {
             <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-blue-100 to-indigo-100 blur-3xl opacity-50" />
           </div>
 
-          <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-4xl text-center">
               <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-indigo-50 px-4 py-1.5 text-xs font-semibold text-indigo-600 ring-1 ring-inset ring-indigo-500/20">
                 <Briefcase className="h-3.5 w-3.5" />
@@ -173,7 +173,7 @@ export default function CampaignManagementPage() {
 
         {/* Workflow Section */}
         <section id="workflow" className="py-24 sm:py-32 bg-white">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center mb-16">
               <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
                 Complete Campaign
@@ -240,7 +240,7 @@ export default function CampaignManagementPage() {
 
         {/* Campaign Types Section */}
         <section className="py-24 sm:py-32 bg-slate-50">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center mb-16">
               <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
                 Campaign Types for
@@ -287,7 +287,7 @@ export default function CampaignManagementPage() {
 
         {/* Features Section */}
         <section className="py-24 sm:py-32 bg-white">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center mb-16">
               <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
                 Powerful Features for
@@ -334,7 +334,7 @@ export default function CampaignManagementPage() {
 
         {/* CTA Section */}
         <section className="py-24 sm:py-32 bg-slate-900">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-900 px-6 py-20 sm:px-16 sm:py-28">
               <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-indigo-500/20 blur-3xl" />

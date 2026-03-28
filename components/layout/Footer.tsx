@@ -142,7 +142,7 @@ export function Footer() {
             {/* Brand column */}
             <div className="col-span-2">
               <Link href="/" className="inline-flex items-center gap-2.5" aria-label="Truleado Home">
-                <img src="/Truleado Logo Blue.png" alt="Truleado" className="h-20 w-auto" />
+                <img src="/Truleado Logo Blue.png" alt="Truleado" className="h-12 sm:h-16 w-auto" />
                 <span className="text-lg font-black text-slate-900 tracking-tight">Truleado</span>
               </Link>
               <p className="mt-4 text-sm leading-relaxed text-slate-500 max-w-xs">
@@ -150,14 +150,14 @@ export function Footer() {
               </p>
 
               {/* Social */}
-              <div className="mt-6 flex items-center gap-3">
+              <div className="mt-6 flex items-center flex-wrap gap-3">
                 {social.map((item) => {
                   const Icon = item.icon
                   return (
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-500 hover:bg-blue-50 hover:text-blue-600 transition-all"
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-500 hover:bg-blue-50 hover:text-blue-600 transition-all"
                       aria-label={`Follow us on ${item.name}`}
                       target="_blank"
                       rel="noopener noreferrer"

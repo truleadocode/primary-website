@@ -106,8 +106,8 @@ export function Features() {
               <div className="mt-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 p-4 space-y-3">
                 <div className="flex items-center gap-2 rounded-lg bg-white/15 px-3 py-2">
                   <Search className="h-3.5 w-3.5 text-blue-200 shrink-0" />
-                  <span className="text-xs text-blue-100">fashion beauty lifestyle 100k-500k followers</span>
-                  <div className="ml-auto">
+                  <span className="text-xs text-blue-100 truncate min-w-0">fashion beauty lifestyle 100k-500k</span>
+                  <div className="ml-auto shrink-0">
                     <SlidersHorizontal className="h-3 w-3 text-blue-200" />
                   </div>
                 </div>
@@ -129,17 +129,17 @@ export function Features() {
                   { followers: '312K', eng: '4.8%', niche: 'Beauty & Lifestyle' },
                   { followers: '228K', eng: '5.1%', niche: 'Fashion & Style' },
                 ].map((creator, i) => (
-                  <div key={i} className="flex items-center gap-3">
+                  <div key={i} className="flex items-center gap-2">
                     <div className="h-8 w-8 rounded-full bg-white/30 shrink-0" />
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2">
-                        <div className="h-2.5 rounded-full bg-white/40 w-20" />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <div className="h-2.5 rounded-full bg-white/40 w-16 shrink-0" />
                         <span className="text-xs text-blue-200">{creator.followers}</span>
                         <span className="text-xs text-emerald-300">{creator.eng}</span>
                       </div>
-                      <div className="mt-1 text-xs text-blue-200">{creator.niche}</div>
+                      <div className="mt-1 text-xs text-blue-200 truncate">{creator.niche}</div>
                     </div>
-                    <button className="text-xs font-medium text-blue-700 bg-white rounded-lg px-2.5 py-1">
+                    <button className="shrink-0 text-xs font-medium text-blue-700 bg-white rounded-lg px-2.5 py-1">
                       Unlock
                     </button>
                   </div>
