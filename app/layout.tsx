@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { WebMCP } from "@/components/WebMCP";
 
 // Load Inter font
 const inter = Inter({
@@ -313,8 +314,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* End Google Tag Manager (noscript) */}
 
         {children}
-
-
+        <WebMCP />
       </body>
     </html>
   );

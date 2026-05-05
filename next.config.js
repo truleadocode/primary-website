@@ -19,6 +19,20 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: '/',
+        headers: [
+          {
+            key: 'Link',
+            value: [
+              '</.well-known/api-catalog>; rel="api-catalog"',
+              '</docs>; rel="service-doc"',
+              '</.well-known/agent-skills/index.json>; rel="describedby"',
+              '</.well-known/mcp/server-card.json>; rel="mcp-server-card"',
+            ].join(', '),
+          },
+        ],
+      },
+      {
         source: '/business/billing',
         headers: [
           {
