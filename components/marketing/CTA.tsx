@@ -45,8 +45,8 @@ export function CTA() {
             </div>
 
             {/* Trust indicators */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm text-blue-100">
-              {['30-day free trial', 'No credit card required', 'Cancel anytime'].map((item) => (
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs sm:text-sm text-blue-100">
+              {['7-day free trial', 'No credit card required', 'Cancel anytime'].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-white shrink-0" />
                   <span>{item}</span>

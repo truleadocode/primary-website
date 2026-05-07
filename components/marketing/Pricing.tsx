@@ -51,7 +51,7 @@ export function Pricing() {
           </div>
 
           {/* Feature grid */}
-          <div className="px-5 py-8 sm:px-12 sm:py-10">
+          <div className="px-4 py-8 sm:px-12 sm:py-10">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
               {features.map((group) => (
                 <div key={group.category}>

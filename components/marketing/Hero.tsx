@@ -60,7 +60,7 @@ export function Hero() {
         </div>
 
         {/* Dashboard Preview */}
-        <div className="hero-animate mt-14 mx-auto max-w-5xl" style={{ animationDelay: '360ms' }}>
+        <div className="hero-animate mt-14 mx-auto max-w-5xl overflow-hidden" style={{ animationDelay: '360ms' }}>
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-blue-200/50 via-indigo-100/50 to-blue-200/50 rounded-3xl blur-2xl" />
 
@@ -80,8 +80,8 @@ export function Hero() {
               </div>
 
               {/* Dashboard body */}
-              <div className="p-4 sm:p-6 bg-slate-50 rounded-b-xl">
-                <div className="grid grid-cols-12 gap-4">
+              <div className="p-3 sm:p-6 bg-slate-50 rounded-b-xl">
+                <div className="grid grid-cols-12 gap-3 sm:gap-4">
                   {/* Sidebar */}
                   <div className="col-span-2 hidden sm:block space-y-1.5">
                     <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-600">
@@ -103,7 +103,7 @@ export function Hero() {
                   {/* Main content */}
                   <div className="col-span-12 sm:col-span-10 space-y-4">
                     {/* Stat cards */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div className="grid grid-cols-2 gap-2 sm:gap-3">
                       {[
                         { label: 'Active Campaigns', value: '12', change: '+3', changeColor: 'text-blue-600' },
                         { label: 'Team Members', value: '8', change: '+2', changeColor: 'text-indigo-600' },

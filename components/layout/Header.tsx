@@ -16,6 +16,7 @@ const navLinks = [
     ]
   },
   { label: 'How it Works', href: '#how-it-works' },
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Resources', href: 'https://blog.truleado.com' },
 ]
 

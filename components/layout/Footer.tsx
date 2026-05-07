@@ -115,13 +115,13 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Newsletter Section */}
         <div className="py-12 border-b border-slate-200">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div>
               <h3 className="text-lg font-semibold text-slate-900">Stay in the loop</h3>
               <p className="mt-1 text-sm text-slate-500">Get the latest updates on influencer marketing software features, tips, and agency insights.</p>
             </div>
-            <div className="flex gap-3 w-full md:w-auto">
-              <div className="relative flex-1 md:w-64">
+            <div className="flex gap-3 w-full sm:w-auto">
+              <div className="relative flex-1 sm:w-64">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                 <input
                   type="email"
@@ -138,9 +138,9 @@ export function Footer() {
 
         {/* Main footer content */}
         <div className="py-16">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
             {/* Brand column */}
-            <div className="col-span-2">
+            <div className="col-span-2 sm:col-span-3 lg:col-span-2">
               <Link href="/" className="inline-flex items-center gap-2.5" aria-label="Truleado Home">
                 <img src="/Truleado Logo Blue.png" alt="Truleado" className="h-12 sm:h-16 w-auto" />
                 <span className="text-lg font-black text-slate-900 tracking-tight">Truleado</span>
