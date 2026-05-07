@@ -189,7 +189,7 @@ export function Header() {
                 ) : (
                   <Link
                     href={link.href}
-                    className="px-4 py-3 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
+                    className="block px-4 py-3 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.label}
