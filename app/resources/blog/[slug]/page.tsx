@@ -1,0 +1,156 @@
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
+import { getBlogPost, getAllBlogPosts } from '@/lib/blog'
+import { ArrowLeft, ArrowRight, Clock, Tag, ChevronDown } from 'lucide-react'
+import type { Metadata } from 'next'
+
+interface Props {
+  params: { slug: string }
+}
+
+export async function generateStaticParams() {
+  const posts = getAllBlogPosts()
+  return posts.map(post => ({ slug: post.slug }))
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const post = getBlogPost(params.slug)
+  if (!post) return {}
+  return {
+    title: post.title,
+    description: post.description,
+    alternates: { canonical: `https://truleado.com/resources/blog/${post.slug}` },
+    openGraph: {
+      title: `${post.title} | Truleado`,
+      description: post.description,
+      url: `https://truleado.com/resources/blog/${post.slug}`,
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author],
+    },
+  }
+}
+
+export default function BlogPostPage({ params }: Props) {
+  const post = getBlogPost(params.slug)
+  if (!post) notFound()
+
+  const allPosts = getAllBlogPosts()
+  const currentIndex = allPosts.findIndex(p => p.slug === post.slug)
+  const prevPost = allPosts[currentIndex + 1]
+  const nextPost = allPosts[currentIndex - 1]
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.description,
+    author: { '@type': 'Organization', name: post.author, url: 'https://truleado.com' },
+    publisher: { '@type': 'Organization', name: 'Truleado', logo: { '@type': 'ImageObject', url: 'https://truleado.com/Truleado%20Logo%20Blue.png' } },
+    datePublished: post.date,
+    url: `https://truleado.com/resources/blog/${post.slug}`,
+  }
+
+  const faqJsonLd = post.faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: post.faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  } : null
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
+      <Header />
+      <main className="flex-1">
+        <section className="pt-32 pb-12 px-4 border-b border-slate-100">
+          <div className="mx-auto max-w-3xl">
+            <nav className="flex items-center gap-2 text-sm text-slate-400 mb-8">
+              <Link href="/resources" className="hover:text-slate-600 transition-colors">Resources</Link>
+              <span>/</span>
+              <Link href="/resources/blog" className="hover:text-slate-600 transition-colors">Blog</Link>
+              <span>/</span>
+              <span className="text-slate-600 truncate max-w-xs">{post.title}</span>
+            </nav>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full"><Tag className="h-3 w-3" />{post.category}</span>
+              <span className="flex items-center gap-1 text-xs text-slate-400"><Clock className="h-3 w-3" />{post.readTime}</span>
+              <span className="text-xs text-slate-400">{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-6">{post.title}</h1>
+            <p className="text-xl text-slate-500 leading-relaxed mb-8">{post.description}</p>
+            <div className="flex items-center gap-3 pt-6 border-t border-slate-100">
+              <div className="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">T</div>
+              <div>
+                <p className="text-sm font-semibold text-slate-900">{post.author}</p>
+                <p className="text-xs text-slate-400">{post.authorRole}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-12 px-4">
+          <div className="mx-auto max-w-3xl">
+            <div
+              className="prose prose-slate prose-lg max-w-none prose-headings:font-black prose-headings:tracking-tight prose-h2:text-2xl prose-h2:text-slate-900 prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl prose-h3:text-slate-800 prose-h3:mt-8 prose-h3:mb-3 prose-p:text-slate-600 prose-p:leading-relaxed prose-li:text-slate-600 prose-strong:text-slate-900 prose-strong:font-semibold prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          </div>
+        </section>
+
+        {post.faqs.length > 0 && (
+          <section className="py-12 px-4 bg-slate-50 border-t border-slate-100">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-2xl font-black text-slate-900 mb-8">Frequently Asked Questions</h2>
+              <div className="space-y-4">
+                {post.faqs.map((faq, i) => (
+                  <details key={i} className="group bg-white rounded-xl border border-slate-200 overflow-hidden">
+                    <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none">
+                      <span className="font-semibold text-slate-900 pr-4">{faq.question}</span>
+                      <ChevronDown className="h-4 w-4 text-slate-400 shrink-0 group-open:rotate-180 transition-transform" />
+                    </summary>
+                    <div className="px-6 pb-5 text-slate-600 text-sm leading-relaxed">{faq.answer}</div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        <section className="py-12 px-4 border-t border-slate-100">
+          <div className="mx-auto max-w-3xl grid sm:grid-cols-2 gap-4">
+            {prevPost ? (
+              <Link href={`/resources/blog/${prevPost.slug}`} className="group flex flex-col gap-1 p-5 rounded-xl border border-slate-200 hover:border-blue-200 transition-colors">
+                <span className="flex items-center gap-1 text-xs text-slate-400"><ArrowLeft className="h-3 w-3" /> Previous</span>
+                <span className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">{prevPost.title}</span>
+              </Link>
+            ) : <div />}
+            {nextPost ? (
+              <Link href={`/resources/blog/${nextPost.slug}`} className="group flex flex-col gap-1 p-5 rounded-xl border border-slate-200 hover:border-blue-200 transition-colors sm:text-right">
+                <span className="flex items-center gap-1 text-xs text-slate-400 sm:justify-end">Next <ArrowRight className="h-3 w-3" /></span>
+                <span className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">{nextPost.title}</span>
+              </Link>
+            ) : <div />}
+          </div>
+        </section>
+
+        <section className="py-16 px-4 bg-slate-900">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-black text-white mb-4">Run better influencer campaigns</h2>
+            <p className="text-slate-400 mb-8">Truleado is free to start. No credit card required.</p>
+            <Link href="https://app.truleado.com/signup">
+              <button className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-500 transition-colors">Start free trial <ArrowRight className="h-4 w-4" /></button>
+            </Link>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  )
+}
