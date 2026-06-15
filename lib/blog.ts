@@ -17,8 +17,8 @@ export const blogPosts: BlogPost[] = [
     title: 'What Is Influencer Marketing Software? (A Complete Guide for Agencies)',
     description: 'Influencer marketing software helps agencies manage creator discovery, campaign execution, approvals, analytics, and payments from one platform. Here is everything you need to know.',
     date: '2026-06-10',
-    author: 'Truleado Team',
-    authorRole: 'Influencer Marketing Experts',
+    author: 'Peter Hall',
+    authorRole: 'Head of Content, Truleado',
     category: 'Guides',
     readTime: '8 min read',
     content: `
@@ -116,8 +116,8 @@ export const blogPosts: BlogPost[] = [
     title: 'How to Manage Multiple Influencer Marketing Clients (Without Losing Your Mind)',
     description: 'Running influencer campaigns for multiple clients at once is one of the hardest operational challenges in agency work. Here is the system that actually works.',
     date: '2026-06-12',
-    author: 'Truleado Team',
-    authorRole: 'Influencer Marketing Experts',
+    author: 'Peter Hall',
+    authorRole: 'Head of Content, Truleado',
     category: 'Agency Operations',
     readTime: '7 min read',
     content: `
@@ -183,8 +183,8 @@ export const blogPosts: BlogPost[] = [
     title: 'How to Measure Influencer Marketing ROI: A Practical Guide for Agencies',
     description: 'Measuring influencer marketing ROI is one of the hardest questions agencies face. Here is a practical framework for tracking, calculating, and reporting it to clients.',
     date: '2026-06-14',
-    author: 'Truleado Team',
-    authorRole: 'Influencer Marketing Experts',
+    author: 'Peter Hall',
+    authorRole: 'Head of Content, Truleado',
     category: 'Analytics',
     readTime: '9 min read',
     content: `
@@ -271,8 +271,8 @@ export const blogPosts: BlogPost[] = [
     title: 'How to Write an Influencer Brief That Creators Actually Follow',
     description: 'A strong influencer brief is the difference between content that lands and reshoots that waste weeks. Here is exactly what to include and how to structure it.',
     date: '2026-06-16',
-    author: 'Truleado Team',
-    authorRole: 'Influencer Marketing Experts',
+    author: 'Peter Hall',
+    authorRole: 'Head of Content, Truleado',
     category: 'Guides',
     readTime: '8 min read',
     content: `
@@ -298,7 +298,8 @@ export const blogPosts: BlogPost[] = [
 <h3>3. Deliverables and Format</h3>
 <p>Be specific. Vague deliverables produce vague content. Include:</p>
 <ul>
-<li>Platform (Instagram, TikTok, YouTube, etc.)</n<li>Content format (Reel, Story, in-feed post, long-form video, etc.)</li>
+<li>Platform (Instagram, TikTok, YouTube, etc.)</li>
+<li>Content format (Reel, Story, in-feed post, long-form video, etc.)</li>
 <li>Quantity (e.g., 1 Reel + 3 Stories)</li>
 <li>Minimum video length if applicable</li>
 <li>Aspect ratio and resolution requirements</li>
@@ -365,8 +366,8 @@ export const blogPosts: BlogPost[] = [
     title: 'What Is Earned Media Value? EMV Explained for Influencer Marketers',
     description: 'Earned media value (EMV) is one of the most cited — and most misunderstood — metrics in influencer marketing. Here is what it actually measures and when to use it.',
     date: '2026-06-16',
-    author: 'Truleado Team',
-    authorRole: 'Influencer Marketing Experts',
+    author: 'Peter Hall',
+    authorRole: 'Head of Content, Truleado',
     category: 'Analytics',
     readTime: '7 min read',
     content: `

@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getAllBlogPosts } from '@/lib/blog'
+import { getAllComparisons } from '@/lib/comparisons'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://truleado.com'
@@ -13,12 +14,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/integrations`, lastModified: currentDate, changeFrequency: 'monthly' as const, priority: 0.7 },
   ]
 
-  const blogPosts = getAllBlogPosts().map(post => ({
+  const blogPages = getAllBlogPosts().map(post => ({
     url: `${baseUrl}/resources/blog/${post.slug}`,
     lastModified: new Date(post.date).toISOString(),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }))
 
-  return [...staticPages, ...blogPosts]
+  const comparisonPages = getAllComparisons().map(comparison => ({
+    url: `${baseUrl}/vs-${comparison.competitorSlug}`,
+    lastModified: new Date(comparison.publishDate).toISOString(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.85,
+  }))
+
+  return [...staticPages, ...blogPages, ...comparisonPages]
 }
