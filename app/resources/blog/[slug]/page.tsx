@@ -6,8 +6,8 @@ import { getBlogPost, getAllBlogPosts } from '@/lib/blog'
 import { ArrowLeft, ArrowRight, Clock, Tag, ChevronDown } from 'lucide-react'
 import type { Metadata } from 'next'
 
-interface Props {
-  params: { slug: string }
+type Props = {
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -16,7 +16,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = getBlogPost(params.slug)
+  const { slug } = await params
+  const post = getBlogPost(slug)
   if (!post) return {}
   return {
     title: post.title,
@@ -33,8 +34,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = getBlogPost(params.slug)
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params
+  const post = getBlogPost(slug)
   if (!post) notFound()
 
   const allPosts = getAllBlogPosts()
@@ -69,6 +71,7 @@ export default function BlogPostPage({ params }: Props) {
       {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
       <Header />
       <main className="flex-1">
+        {/* Header */}
         <section className="pt-32 pb-12 px-4 border-b border-slate-100">
           <div className="mx-auto max-w-3xl">
             <nav className="flex items-center gap-2 text-sm text-slate-400 mb-8">
@@ -79,9 +82,15 @@ export default function BlogPostPage({ params }: Props) {
               <span className="text-slate-600 truncate max-w-xs">{post.title}</span>
             </nav>
             <div className="flex items-center gap-3 mb-4">
-              <span className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full"><Tag className="h-3 w-3" />{post.category}</span>
-              <span className="flex items-center gap-1 text-xs text-slate-400"><Clock className="h-3 w-3" />{post.readTime}</span>
-              <span className="text-xs text-slate-400">{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+              <span className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">
+                <Tag className="h-3 w-3" />{post.category}
+              </span>
+              <span className="flex items-center gap-1 text-xs text-slate-400">
+                <Clock className="h-3 w-3" />{post.readTime}
+              </span>
+              <span className="text-xs text-slate-400">
+                {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+              </span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-6">{post.title}</h1>
             <p className="text-xl text-slate-500 leading-relaxed mb-8">{post.description}</p>
@@ -95,15 +104,23 @@ export default function BlogPostPage({ params }: Props) {
           </div>
         </section>
 
+        {/* Content */}
         <section className="py-12 px-4">
           <div className="mx-auto max-w-3xl">
             <div
-              className="prose prose-slate prose-lg max-w-none prose-headings:font-black prose-headings:tracking-tight prose-h2:text-2xl prose-h2:text-slate-900 prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl prose-h3:text-slate-800 prose-h3:mt-8 prose-h3:mb-3 prose-p:text-slate-600 prose-p:leading-relaxed prose-li:text-slate-600 prose-strong:text-slate-900 prose-strong:font-semibold prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline"
+              className="[&>h2]:text-2xl [&>h2]:font-black [&>h2]:text-slate-900 [&>h2]:mt-12 [&>h2]:mb-4
+                [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-slate-800 [&>h3]:mt-8 [&>h3]:mb-3
+                [&>p]:text-slate-600 [&>p]:leading-relaxed [&>p]:mb-4
+                [&>ul]:mb-4 [&>ul]:space-y-2 [&>ul>li]:text-slate-600 [&>ul>li]:pl-4 [&>ul>li]:border-l-2 [&>ul>li]:border-blue-100
+                [&>ol]:mb-4 [&>ol]:space-y-2 [&>ol>li]:text-slate-600
+                [&>p>strong]:text-slate-900 [&>p>strong]:font-semibold
+                [&>ul>li>strong]:text-slate-900 [&>ul>li>strong]:font-semibold"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </div>
         </section>
 
+        {/* FAQ */}
         {post.faqs.length > 0 && (
           <section className="py-12 px-4 bg-slate-50 border-t border-slate-100">
             <div className="mx-auto max-w-3xl">
@@ -123,6 +140,7 @@ export default function BlogPostPage({ params }: Props) {
           </section>
         )}
 
+        {/* Prev / Next */}
         <section className="py-12 px-4 border-t border-slate-100">
           <div className="mx-auto max-w-3xl grid sm:grid-cols-2 gap-4">
             {prevPost ? (
@@ -140,12 +158,15 @@ export default function BlogPostPage({ params }: Props) {
           </div>
         </section>
 
+        {/* CTA */}
         <section className="py-16 px-4 bg-slate-900">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-black text-white mb-4">Run better influencer campaigns</h2>
             <p className="text-slate-400 mb-8">Truleado is free to start. No credit card required.</p>
             <Link href="https://app.truleado.com/signup">
-              <button className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-500 transition-colors">Start free trial <ArrowRight className="h-4 w-4" /></button>
+              <button className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-500 transition-colors">
+                Start free trial <ArrowRight className="h-4 w-4" />
+              </button>
             </Link>
           </div>
         </section>
