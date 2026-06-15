@@ -265,6 +265,184 @@ export const blogPosts: BlogPost[] = [
         answer: 'Use unique promo codes per creator, UTM-tagged tracking links per creator and platform, dedicated landing pages, and pixel-based conversion tracking. Set up attribution infrastructure before the campaign launches — retroactive attribution is always incomplete.'
       }
     ]
+  },
+  {
+    slug: 'how-to-write-an-influencer-brief',
+    title: 'How to Write an Influencer Brief That Creators Actually Follow',
+    description: 'A strong influencer brief is the difference between content that lands and reshoots that waste weeks. Here is exactly what to include and how to structure it.',
+    date: '2026-06-16',
+    author: 'Truleado Team',
+    authorRole: 'Influencer Marketing Experts',
+    category: 'Guides',
+    readTime: '8 min read',
+    content: `
+<h2>What Is an Influencer Brief?</h2>
+<p>An influencer brief is a document that gives a creator everything they need to produce on-brand content for a campaign — without requiring constant back-and-forth with your team. It covers the campaign objective, key messages, content requirements, posting guidelines, deadlines, and usage rights in one place.</p>
+
+<p>A good brief is not a creative straitjacket. It is the minimum viable set of constraints that keeps content on-brand while leaving room for the creator to be themselves. Over-briefed creators produce stiff, inauthentic content. Under-briefed creators produce content that misses the mark and requires expensive reshoot rounds.</p>
+
+<h2>Why Most Influencer Briefs Fail</h2>
+<p>Most influencer briefs fail for one of three reasons: they are too long and overwhelming, too vague and open-ended, or they read like a legal document rather than a creative guide.</p>
+
+<p>The most common failure mode is burying the most important information — the campaign objective and the one thing the creator absolutely must communicate — somewhere in the middle of a five-page PDF. Creators scan briefs. If your key message is not near the top, it often does not make it into the content.</p>
+
+<h2>What to Include in an Influencer Brief</h2>
+
+<h3>1. Campaign Overview (1 paragraph)</h3>
+<p>State the brand, the product or campaign, the target audience, and the campaign objective in plain language. Example: "We are launching a new line of reef-safe sunscreens targeting outdoor enthusiasts aged 25-40. The goal of this campaign is to drive awareness and link clicks to the product page."</p>
+
+<h3>2. The One Key Message</h3>
+<p>This is the most important section of any brief. Choose one thing you want audiences to take away from this content. Not three things. Not five. One. Campaigns that try to communicate multiple messages at once communicate none of them effectively.</p>
+<p>Write it in a single sentence: "[Product] helps [audience] do [thing] without [pain point]."</p>
+
+<h3>3. Deliverables and Format</h3>
+<p>Be specific. Vague deliverables produce vague content. Include:</p>
+<ul>
+<li>Platform (Instagram, TikTok, YouTube, etc.)</n<li>Content format (Reel, Story, in-feed post, long-form video, etc.)</li>
+<li>Quantity (e.g., 1 Reel + 3 Stories)</li>
+<li>Minimum video length if applicable</li>
+<li>Aspect ratio and resolution requirements</li>
+<li>Whether a swipe-up link or link-in-bio is required</li>
+</ul>
+
+<h3>4. Mandatory Inclusions</h3>
+<p>List the non-negotiables — elements that must appear in the content. Keep this list short. Every mandatory element you add is a constraint on the creator and a potential point of failure in review. Typical mandatory inclusions are: product name, key claim, promo code or link, and any required disclosures (e.g., #ad or #sponsored).</p>
+
+<h3>5. Brand Voice and Tone</h3>
+<p>Describe your brand voice in three adjectives. Then describe what it is not in three adjectives. Example: "Our brand is warm, direct, and grounded. We are not corporate, not overly formal, and never uses slang." Include two or three example phrases or captions that hit the right tone.</p>
+
+<h3>6. Visual Guidelines</h3>
+<p>Specify whether the product should be shown in use, whether it needs to be held a specific way, whether faces need to be visible, whether outdoor or indoor settings are preferred, and any visual elements to avoid (competitor products, certain colors, specific settings).</p>
+
+<h3>7. What Not to Say or Show</h3>
+<p>An explicit do-not list prevents the most common compliance issues. Include competitor brand mentions, unsubstantiated health or performance claims, specific visual contexts that conflict with brand positioning, and anything that would trigger platform policy issues.</p>
+
+<h3>8. Timeline and Deadlines</h3>
+<p>State the content draft deadline, the review window (how long your team has to provide feedback), the approval deadline, and the go-live date. If there is a required posting window (e.g., must go live between 9am-12pm on a Tuesday), state it explicitly.</p>
+
+<h3>9. Compensation and Payment Terms</h3>
+<p>Specify the fee, any gifted product included, the payment timeline, and what triggers payment (e.g., payment releases 14 days after approved content goes live). Do not leave payment terms vague — it is the fastest way to damage creator relationships.</p>
+
+<h3>10. Usage Rights</h3>
+<p>State clearly what rights you are acquiring to the content: how long, which channels, whether paid amplification is permitted, and whether you can modify the content. Usage rights directly affect creator fees, so address this upfront.</p>
+
+<h2>How Long Should an Influencer Brief Be?</h2>
+<p>A brief for a standard Instagram or TikTok campaign should be 1-2 pages maximum. YouTube integrations can run 2-3 pages due to the complexity of long-form content requirements. Anything longer than 3 pages will not be read carefully — split it into a main brief and a separate reference document for brand guidelines.</p>
+
+<h2>Brief Mistakes That Cause Reshoots</h2>
+<p>The three brief mistakes that most commonly lead to reshoots are: not specifying the platform format (creator shoots landscape video for a Reels campaign), not listing mandatory disclosures upfront (content goes live without #ad), and using subjective tone descriptors like "fun" without examples of what that means to your brand.</p>
+
+<h2>Sending and Managing Briefs at Scale</h2>
+<p>For agencies managing campaigns across multiple clients and creators, brief distribution quickly becomes an operational bottleneck. Sending briefs by email, chasing acknowledgment, and tracking which version each creator has received is unsustainable at scale.</p>
+
+<p>Truleado lets you attach briefs directly to creator assignments within each campaign. Creators access their brief through their own portal, confirm receipt, and submit content directly — all in one place. No email threads, no version confusion, and no chasing acknowledgments. If you are running more than five creator campaigns at once, this kind of workflow automation is not a luxury, it is a necessity.</p>
+    `,
+    faqs: [
+      {
+        question: 'What is an influencer brief?',
+        answer: 'An influencer brief is a document that gives a creator everything they need to produce on-brand content for a campaign — covering the campaign objective, key messages, deliverables, mandatory inclusions, tone, deadlines, and usage rights in one place. It replaces the back-and-forth that slows down campaign execution.'
+      },
+      {
+        question: 'What should be included in an influencer brief?',
+        answer: 'A complete influencer brief includes: campaign overview, one key message, deliverables and format specifications, mandatory inclusions, brand voice and tone guidance, visual guidelines, a do-not list, timeline and deadlines, compensation and payment terms, and usage rights.'
+      },
+      {
+        question: 'How long should an influencer brief be?',
+        answer: 'For Instagram and TikTok campaigns, 1-2 pages is ideal. YouTube integrations may require 2-3 pages. Anything longer than 3 pages will not be read carefully by creators. Move detailed brand guidelines to a separate reference document linked from the brief.'
+      },
+      {
+        question: 'How do you send briefs to influencers?',
+        answer: 'The most scalable approach is through a creator portal built into your influencer marketing software, where briefs are attached directly to each creator assignment. This ensures the right creator sees the right brief, can confirm receipt, and submits content without email threads or version confusion.'
+      },
+      {
+        question: 'Why do influencer campaigns need a brief?',
+        answer: 'Without a brief, creators make assumptions about format, tone, key messages, and mandatory disclosures — leading to content that misses the mark, compliance issues, and costly reshoot rounds. A good brief reduces revision cycles and protects both the brand and the creator.'
+      }
+    ]
+  },
+  {
+    slug: 'what-is-earned-media-value',
+    title: 'What Is Earned Media Value? EMV Explained for Influencer Marketers',
+    description: 'Earned media value (EMV) is one of the most cited — and most misunderstood — metrics in influencer marketing. Here is what it actually measures and when to use it.',
+    date: '2026-06-16',
+    author: 'Truleado Team',
+    authorRole: 'Influencer Marketing Experts',
+    category: 'Analytics',
+    readTime: '7 min read',
+    content: `
+<h2>What Is Earned Media Value?</h2>
+<p>Earned media value (EMV) is a metric that estimates the monetary value of organic exposure generated by influencer content, social mentions, press coverage, or user-generated content — based on what it would have cost to generate the same exposure through paid advertising.</p>
+
+<p>In influencer marketing, EMV is most commonly used to put a dollar figure on the reach and impressions generated by a creator campaign. If your campaign generated 10 million impressions and the equivalent paid media would have cost $80,000 to buy, the campaign EMV is $80,000.</p>
+
+<h2>The Standard EMV Formula</h2>
+<p><strong>EMV = Total Impressions x (CPM / 1,000)</strong></p>
+<p>Where CPM (cost per thousand impressions) is the benchmark rate for paid media in your industry or on that specific platform.</p>
+
+<p>Example: A campaign generates 8 million impressions across Instagram and TikTok. Your industry benchmark CPM is $9.</p>
+<p>EMV = 8,000,000 x (9 / 1,000) = <strong>$72,000</strong></p>
+
+<p>Some agencies weight impressions differently by platform (TikTok impressions vs. Instagram impressions may have different benchmark CPMs), or weight engagement actions (likes, comments, shares, saves) at a higher CPM than passive impressions. These variations are valid — just document your methodology and apply it consistently across all clients and campaigns.</p>
+
+<h2>Why Agencies Use EMV</h2>
+<p>EMV solves a specific reporting problem: how do you justify influencer marketing spend to a client who is comparing it to paid social? A client spending $25,000 on a creator campaign wants to understand the return in terms they can benchmark. Saying the campaign generated "4.2 million impressions" is abstract. Saying the campaign generated "$38,000 in earned media value against a $25,000 investment" is concrete.</p>
+
+<p>EMV is especially useful for brand awareness campaigns where there are no direct conversion events to track. It provides a consistent, dollar-denominated metric that clients can compare across campaigns and against paid channel performance.</p>
+
+<h2>What Is a Good EMV for Influencer Marketing?</h2>
+<p>A commonly cited benchmark is an EMV-to-spend ratio of at least 3:1 — meaning for every $1 spent on a creator campaign, you generate at least $3 in earned media value. Strong campaigns regularly hit 5:1 or higher. Campaigns featuring high-follower macro influencers on viral content can exceed 10:1 EMV ratios.</p>
+
+<p>These benchmarks vary significantly by industry, platform, and campaign type. Fashion and beauty campaigns typically see higher EMV multipliers because of strong visual content performance. B2B or niche campaigns may have lower reach but higher audience quality, making raw EMV a less meaningful indicator.</p>
+
+<h2>EMV vs. ROI: Key Differences</h2>
+<p>EMV and ROI measure different things, and conflating them is one of the most common reporting mistakes in influencer marketing.</p>
+
+<p><strong>EMV</strong> measures the estimated cost equivalent of exposure generated. It tells you how much it would have cost to buy the same reach through paid media. It does not measure revenue, conversions, or actual business impact.</p>
+
+<p><strong>ROI</strong> measures actual returns against actual spend: (Revenue - Cost) / Cost. It requires attribution data — promo codes, UTM-tagged links, or pixel-based conversion tracking — to calculate accurately.</p>
+
+<p>Use EMV for brand awareness campaigns where direct attribution is not possible or not the primary goal. Use ROI for direct response campaigns where conversion tracking is in place.</p>
+
+<h2>The Limitations of EMV</h2>
+<p>EMV is a useful proxy metric, but it has real limitations that every agency should disclose to clients:</p>
+
+<ul>
+<li><strong>It is not revenue.</strong> A high EMV does not mean the campaign drove sales. Impressions and conversions are different things.</li>
+<li><strong>CPM benchmarks vary widely.</strong> Industry CPMs range from $2 to $30+ depending on category, platform, and audience quality. The CPM you use directly determines the EMV — make your methodology transparent.</li>
+<li><strong>Impressions are not equivalent to paid ad impressions.</strong> Organic influencer content is not delivered with the same targeting precision or frequency control as paid media. The comparison is approximate by design.</li>
+<li><strong>Platform data can be incomplete.</strong> Instagram Stories views, for example, are only available for a limited window. If you pull data late, impressions will be understated.</li>
+</ul>
+
+<h2>When to Use EMV in Client Reports</h2>
+<p>EMV belongs in client reports when: the campaign objective is brand awareness or reach, there is no direct attribution model in place, the client is comparing influencer spend to paid social budgets, or you need a consistent benchmark metric across campaigns.</p>
+
+<p>EMV should not be your primary metric when: the campaign objective is conversion-based, attribution tracking is in place and producing clean data, or the client is sophisticated enough to understand that EMV is a proxy, not a revenue metric.</p>
+
+<h2>Tracking EMV Across Campaigns</h2>
+<p>Tracking EMV manually — pulling impression data from each platform, applying CPM benchmarks, and calculating totals per creator — is time-intensive and error-prone. Influencer marketing platforms like Truleado centralize campaign impression data and can calculate EMV automatically using your agency benchmark CPMs, producing consistent reports across all clients without manual spreadsheet work. This consistency is important: clients notice when the same metric is calculated differently across campaign reports.</p>
+    `,
+    faqs: [
+      {
+        question: 'What is earned media value (EMV)?',
+        answer: 'Earned media value (EMV) is a metric that estimates the monetary value of organic exposure generated by influencer content or social mentions — calculated by multiplying total impressions by a benchmark CPM rate. It represents what the same reach would have cost to generate through paid advertising.'
+      },
+      {
+        question: 'How do you calculate earned media value?',
+        answer: 'The standard EMV formula is: EMV = Total Impressions x (CPM / 1,000). Use the benchmark CPM for paid media in your industry or on the relevant platform. For example, 5 million impressions at an $8 CPM = $40,000 in EMV. Document and apply your CPM benchmarks consistently across all campaigns.'
+      },
+      {
+        question: 'What is a good earned media value for influencer marketing?',
+        answer: 'A commonly cited benchmark is a 3:1 EMV-to-spend ratio — $3 in EMV for every $1 invested. Strong influencer campaigns often reach 5:1 or higher. Viral content or high-follower macro influencer campaigns can exceed 10:1. Benchmarks vary by industry and platform.'
+      },
+      {
+        question: 'What is the difference between EMV and ROI?',
+        answer: 'EMV measures the estimated cost equivalent of earned exposure — it tells you what the reach would have cost through paid media, but not what it generated in revenue. ROI measures actual returns: (Revenue - Cost) / Cost. EMV is a proxy metric for awareness campaigns; ROI requires attribution data and is used for conversion-focused campaigns.'
+      },
+      {
+        question: 'Is earned media value an accurate metric?',
+        answer: 'EMV is a useful proxy but not a precise measure of business impact. Its accuracy depends heavily on the CPM benchmark used, platform impression completeness, and whether organic impressions are truly comparable to paid placements. Always disclose your methodology to clients and pair EMV with engagement metrics for a fuller picture.'
+      }
+    ]
   }
 ]
 
