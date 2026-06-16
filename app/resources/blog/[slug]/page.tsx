@@ -120,24 +120,6 @@ export default async function BlogPostPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
 
-      {/* Scoped styles for rich content rendering */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        .blog-content h2 { font-size: 1.5rem; font-weight: 900; color: #0f172a; margin-top: 3rem; margin-bottom: 1rem; line-height: 1.3; }
-        .blog-content h3 { font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-top: 2rem; margin-bottom: 0.75rem; }
-        .blog-content p { color: #475569; line-height: 1.75; margin-bottom: 1rem; }
-        .blog-content ul { margin-bottom: 1.25rem; padding-left: 0; list-style: none; }
-        .blog-content ul li { color: #475569; padding-left: 1.25rem; border-left: 2px solid #dbeafe; margin-bottom: 0.6rem; line-height: 1.65; }
-        .blog-content ul li strong, .blog-content p strong { color: #0f172a; font-weight: 600; }
-        .blog-content ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
-        .blog-content ol li { color: #475569; margin-bottom: 0.6rem; line-height: 1.65; }
-        .blog-content figure { margin: 2.5rem 0; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; }
-        .blog-content figure img { width: 100%; height: 320px; object-fit: cover; display: block; }
-        .blog-content figcaption { font-size: 0.75rem; color: #94a3b8; text-align: center; padding: 0.75rem 1rem 0.875rem; font-style: italic; background: #f8fafc; border-top: 1px solid #e2e8f0; }
-        .blog-content a { color: #2563eb; text-decoration: underline; font-weight: 500; }
-        .blog-content a:hover { color: #1d4ed8; }
-        @media (max-width: 640px) { .blog-content figure img { height: 200px; } .blog-content h2 { font-size: 1.3rem; } }
-      `}} />
-
       <Header />
       <main className="flex-1">
 
@@ -194,7 +176,7 @@ export default async function BlogPostPage({ params }: Props) {
           </section>
         )}
 
-        {/* Article body */}
+        {/* Article body — .blog-content CSS lives in globals.css */}
         <section className="py-12 px-4">
           <div className="mx-auto max-w-3xl">
             <div
