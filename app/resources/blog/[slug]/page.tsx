@@ -65,6 +65,10 @@ export default async function BlogPostPage({ params }: Props) {
     .map(s => getBlogPost(s))
     .filter(Boolean)
 
+  // Split content on [[IMG]] markers and interleave with Next.js Image components
+  const contentParts = post.content.split('[[IMG]]')
+  const images = post.images ?? []
+
   const ogImage = post.coverImage
     ? `${post.coverImage}?w=1200&h=630&q=80&auto=format&fit=crop`
     : 'https://truleado.com/Truleado%20Logo%20Blue.png'
@@ -128,19 +132,19 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="mx-auto max-w-3xl">
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-slate-400 mb-8">
               <Link href="/" className="hover:text-slate-600 transition-colors">Home</Link>
-              <span aria-hidden="true">/</span>
+              <span>/</span>
               <Link href="/resources" className="hover:text-slate-600 transition-colors">Resources</Link>
-              <span aria-hidden="true">/</span>
+              <span>/</span>
               <Link href="/resources/blog" className="hover:text-slate-600 transition-colors">Blog</Link>
-              <span aria-hidden="true">/</span>
+              <span>/</span>
               <span className="text-slate-600 truncate max-w-xs">{post.title}</span>
             </nav>
             <div className="flex items-center gap-3 mb-4">
               <span className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">
-                <Tag className="h-3 w-3" aria-hidden="true" />{post.category}
+                <Tag className="h-3 w-3" />{post.category}
               </span>
               <span className="flex items-center gap-1 text-xs text-slate-400">
-                <Clock className="h-3 w-3" aria-hidden="true" />{post.readTime}
+                <Clock className="h-3 w-3" />{post.readTime}
               </span>
               <time dateTime={post.date} className="text-xs text-slate-400">
                 {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
@@ -149,7 +153,7 @@ export default async function BlogPostPage({ params }: Props) {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-6">{post.title}</h1>
             <p className="text-xl text-slate-500 leading-relaxed mb-8">{post.description}</p>
             <div className="flex items-center gap-3 pt-6 border-t border-slate-100">
-              <div className="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0" aria-hidden="true">PH</div>
+              <div className="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">PH</div>
               <div>
                 <p className="text-sm font-semibold text-slate-900">{post.author}</p>
                 <p className="text-xs text-slate-400">{post.authorRole}</p>
@@ -176,13 +180,33 @@ export default async function BlogPostPage({ params }: Props) {
           </section>
         )}
 
-        {/* Article body — .blog-content CSS lives in globals.css */}
+        {/* Article body — content split on [[IMG]] markers, images rendered as Next.js Image */}
         <section className="py-12 px-4">
           <div className="mx-auto max-w-3xl">
-            <div
-              className="blog-content"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+            {contentParts.map((part, i) => (
+              <div key={i}>
+                <div
+                  className="blog-content"
+                  dangerouslySetInnerHTML={{ __html: part }}
+                />
+                {images[i] && (
+                  <figure className="my-10">
+                    <div className="relative w-full rounded-2xl overflow-hidden bg-slate-100" style={{ height: '320px' }}>
+                      <Image
+                        src={images[i].url}
+                        alt={images[i].alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 768px"
+                      />
+                    </div>
+                    <figcaption className="mt-3 text-center text-sm text-slate-400 italic leading-relaxed">
+                      {images[i].caption}
+                    </figcaption>
+                  </figure>
+                )}
+              </div>
+            ))}
           </div>
         </section>
 
@@ -201,7 +225,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <span className="inline-flex text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full mb-3">{related.category}</span>
                     <h3 className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-2">{related.title}</h3>
                     <span className="flex items-center gap-1 text-xs font-semibold text-blue-600 group-hover:gap-2 transition-all">
-                      Read article <ArrowRight className="h-3 w-3" aria-hidden="true" />
+                      Read article <ArrowRight className="h-3 w-3" />
                     </span>
                   </Link>
                 ))}
@@ -220,7 +244,7 @@ export default async function BlogPostPage({ params }: Props) {
                   <details key={i} className="group bg-white rounded-xl border border-slate-200 overflow-hidden">
                     <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none">
                       <span className="font-semibold text-slate-900 pr-4">{faq.question}</span>
-                      <ChevronDown className="h-4 w-4 text-slate-400 shrink-0 group-open:rotate-180 transition-transform" aria-hidden="true" />
+                      <ChevronDown className="h-4 w-4 text-slate-400 shrink-0 group-open:rotate-180 transition-transform" />
                     </summary>
                     <div className="px-6 pb-5 text-slate-600 text-sm leading-relaxed">{faq.answer}</div>
                   </details>
@@ -235,13 +259,13 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="mx-auto max-w-3xl grid sm:grid-cols-2 gap-4">
             {prevPost ? (
               <Link href={`/resources/blog/${prevPost.slug}`} className="group flex flex-col gap-1 p-5 rounded-xl border border-slate-200 hover:border-blue-200 transition-colors">
-                <span className="flex items-center gap-1 text-xs text-slate-400"><ArrowLeft className="h-3 w-3" aria-hidden="true" /> Previous</span>
+                <span className="flex items-center gap-1 text-xs text-slate-400"><ArrowLeft className="h-3 w-3" /> Previous</span>
                 <span className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">{prevPost.title}</span>
               </Link>
             ) : <div />}
             {nextPost ? (
               <Link href={`/resources/blog/${nextPost.slug}`} className="group flex flex-col gap-1 p-5 rounded-xl border border-slate-200 hover:border-blue-200 transition-colors sm:text-right">
-                <span className="flex items-center gap-1 text-xs text-slate-400 sm:justify-end">Next <ArrowRight className="h-3 w-3" aria-hidden="true" /></span>
+                <span className="flex items-center gap-1 text-xs text-slate-400 sm:justify-end">Next <ArrowRight className="h-3 w-3" /></span>
                 <span className="text-sm font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">{nextPost.title}</span>
               </Link>
             ) : <div />}
@@ -255,7 +279,7 @@ export default async function BlogPostPage({ params }: Props) {
             <p className="text-slate-400 mb-8">Truleado is free to start. No credit card required.</p>
             <Link href="https://app.truleado.com/signup">
               <button className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-500 transition-colors">
-                Start free trial <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                Start free trial <ArrowRight className="h-4 w-4" />
               </button>
             </Link>
           </div>
