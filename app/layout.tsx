@@ -17,52 +17,48 @@ const plusJakarta = Plus_Jakarta_Sans({
   weight: ['400', '500', '600', '700', '800'],
 });
 
-// Comprehensive SEO metadata for better discoverability
 export const metadata: Metadata = {
-  // Core metadata
   title: {
     default: "Truleado - Influencer Marketing Software for Agencies | Manage Campaigns & Creators",
     template: "%s | Truleado",
   },
   description: "Truleado is the complete influencer marketing software built for agencies. Discover creators, manage multi-client campaigns, track ROI, and streamline approvals—all from one workspace. Free to get started, no credit card required.",
   
-  // Keywords for search engines and LLMs
   keywords: [
     "influencer marketing platform",
+    "influencer marketing software for agencies",
     "influencer discovery",
-    "creator marketing",
+    "creator marketing platform",
     "brand partnerships",
     "influencer campaign management",
     "creator economy",
-    "social media marketing",
+    "social media marketing agency",
     "influencer ROI tracking",
     "micro-influencer marketing",
     "brand ambassador program",
     "influencer analytics",
     "content creator platform",
-    "Instagram influencers",
-    "TikTok creators",
-    "YouTube influencers",
-    "influencer outreach",
+    "Instagram influencer marketing",
+    "TikTok creator marketing",
+    "YouTube influencer campaigns",
+    "influencer outreach tool",
     "campaign management software",
     "influencer relationship management",
-    "creator collaboration tools",
-    "influencer marketing software",
+    "multi-client agency software",
+    "client portal for agencies",
+    "creator portal free",
   ],
 
-  // Authors and creator
   authors: [{ name: "Truleado", url: "https://truleado.com" }],
   creator: "Truleado",
   publisher: "Truleado",
 
-  // Icons
   icons: {
     icon: '/Truleado Logo Blue.png',
     shortcut: '/Truleado Logo Blue.png',
     apple: '/Truleado Logo Blue.png',
   },
 
-  // Open Graph for social sharing
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -80,7 +76,6 @@ export const metadata: Metadata = {
     ],
   },
 
-  // Twitter Card
   twitter: {
     card: "summary_large_image",
     title: "Truleado - Influencer Marketing Software for Agencies",
@@ -90,7 +85,6 @@ export const metadata: Metadata = {
     site: "@truleado",
   },
 
-  // Robots directives
   robots: {
     index: true,
     follow: true,
@@ -103,7 +97,6 @@ export const metadata: Metadata = {
     },
   },
 
-  // Canonical URL
   alternates: {
     canonical: "https://truleado.com",
     languages: {
@@ -111,17 +104,10 @@ export const metadata: Metadata = {
     },
   },
 
-  // App-specific metadata
   applicationName: "Truleado",
   category: "Technology",
   classification: "Business Software",
 
-  // Verification (add your actual verification codes)
-  verification: {
-    google: "your-google-verification-code",
-  },
-
-  // Other metadata
   other: {
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
@@ -134,7 +120,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Viewport configuration
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -145,7 +130,6 @@ export const viewport: Viewport = {
   ],
 };
 
-// JSON-LD Structured Data for LLM and search engine understanding
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -185,6 +169,14 @@ const jsonLd = {
       "name": "Truleado",
       "description": "Influencer Marketing Software for Agencies",
       "publisher": { "@id": "https://truleado.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://truleado.com/resources/blog?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
     },
     {
       "@type": "SoftwareApplication",
@@ -244,7 +236,7 @@ const jsonLd = {
           "name": "Can I manage multiple clients and campaigns on Truleado?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Absolutely. As an all-in-one influencer marketing software, Truleado is designed for agencies managing multiple clients. Each Account Manager can own multiple clients and run unlimited campaigns with role-based access control that keeps client data separated.",
+            "text": "Absolutely. Truleado is designed for agencies managing multiple clients. Each Account Manager can own multiple clients and run unlimited campaigns with role-based access control that keeps client data separated.",
           },
         },
         {
@@ -252,7 +244,7 @@ const jsonLd = {
           "name": "How does creator discovery work on Truleado?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Truleado's influencer marketing software includes a built-in discovery tool that lets you search millions of verified influencers across all major platforms. Use credits to unlock contact details and audience insights.",
+            "text": "Truleado includes a built-in discovery tool to search millions of verified influencers across all major platforms. Use credits to unlock contact details and audience insights.",
           },
         },
         {
@@ -260,7 +252,15 @@ const jsonLd = {
           "name": "How do campaign approvals and workflows work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Set up custom multi-stage approval workflows for each client. Internal agency approvals happen first, then client approvals. Everything is tracked with audit logs so you always know who approved what and when.",
+            "text": "Set up custom multi-stage approval workflows for each client. Internal agency approvals happen first, then client approvals through the client portal. Everything is tracked with audit logs.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "What makes Truleado different from other influencer marketing platforms?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Truleado is purpose-built for agencies, not brands. It includes multi-client workspaces, a client portal for content approvals, a free creator portal, and end-to-end campaign management including payments and multi-currency finance — all in one platform.",
           },
         },
       ],
@@ -286,20 +286,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-M53L68M3');`,
           }}
         />
-        {/* End Google Tag Manager */}
 
-        {/* JSON-LD Structured Data for LLM and SEO */}
+        {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         
-        {/* Preconnect to external domains for performance */}
+        {/* Preconnect for performance */}
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* RSS Feed for blog */}
-        <link rel="alternate" type="application/rss+xml" title="Truleado Blog RSS" href="/blog/feed.xml" />
+        {/* RSS Feed */}
+        <link rel="alternate" type="application/rss+xml" title="Truleado Blog" href="/blog/feed.xml" />
       </head>
       <body className={`antialiased ${inter.variable} ${plusJakarta.variable} font-sans`}>
         {/* Google Tag Manager (noscript) */}
@@ -311,11 +311,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
 
         {children}
         <WebMCP />
       </body>
     </html>
-  );
+  )
 }
