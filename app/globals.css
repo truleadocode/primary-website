@@ -399,6 +399,18 @@ html {
   line-height: 1.5;
 }
 
+/* TL;DR callout block — used for AEO direct-answer formatting in blog posts */
+.blog-content .tldr {
+  background: #eff6ff;
+  border-left: 4px solid #2563eb;
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+  font-size: 0.9375rem;
+  color: #1e40af;
+  line-height: 1.6;
+}
+
 @media (max-width: 640px) {
   .blog-content figure img {
     height: 200px !important;
