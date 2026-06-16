@@ -40,14 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       authors: [post.author],
       section: post.category,
       tags: ['influencer marketing', 'agency', post.category.toLowerCase()],
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -68,6 +61,10 @@ export default async function BlogPostPage({ params }: Props) {
   const prevPost = allPosts[currentIndex + 1]
   const nextPost = allPosts[currentIndex - 1]
 
+  const relatedPosts = (post.relatedSlugs ?? [])
+    .map(s => getBlogPost(s))
+    .filter(Boolean)
+
   const ogImage = post.coverImage
     ? `${post.coverImage}?w=1200&h=630&q=80&auto=format&fit=crop`
     : 'https://truleado.com/Truleado%20Logo%20Blue.png'
@@ -77,36 +74,21 @@ export default async function BlogPostPage({ params }: Props) {
     '@type': 'Article',
     headline: post.title,
     description: post.description,
-    image: {
-      '@type': 'ImageObject',
-      url: ogImage,
-      width: 1200,
-      height: 630,
-    },
+    image: { '@type': 'ImageObject', url: ogImage, width: 1200, height: 630 },
     author: {
       '@type': 'Person',
       name: post.author,
       jobTitle: post.authorRole,
-      worksFor: {
-        '@type': 'Organization',
-        name: 'Truleado',
-        url: 'https://truleado.com',
-      },
+      worksFor: { '@type': 'Organization', name: 'Truleado', url: 'https://truleado.com' },
     },
     publisher: {
       '@type': 'Organization',
       name: 'Truleado',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://truleado.com/Truleado%20Logo%20Blue.png',
-      },
+      logo: { '@type': 'ImageObject', url: 'https://truleado.com/Truleado%20Logo%20Blue.png' },
     },
     datePublished: post.date,
     dateModified: post.date,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `https://truleado.com/resources/blog/${post.slug}`,
-    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://truleado.com/resources/blog/${post.slug}` },
     articleSection: post.category,
     inLanguage: 'en-US',
     url: `https://truleado.com/resources/blog/${post.slug}`,
@@ -137,12 +119,34 @@ export default async function BlogPostPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
+
+      {/* Scoped styles for rich content rendering */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .blog-content h2 { font-size: 1.5rem; font-weight: 900; color: #0f172a; margin-top: 3rem; margin-bottom: 1rem; line-height: 1.3; }
+        .blog-content h3 { font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-top: 2rem; margin-bottom: 0.75rem; }
+        .blog-content p { color: #475569; line-height: 1.75; margin-bottom: 1rem; }
+        .blog-content ul { margin-bottom: 1.25rem; padding-left: 0; list-style: none; }
+        .blog-content ul li { color: #475569; padding-left: 1.25rem; border-left: 2px solid #dbeafe; margin-bottom: 0.6rem; line-height: 1.65; }
+        .blog-content ul li strong, .blog-content p strong { color: #0f172a; font-weight: 600; }
+        .blog-content ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+        .blog-content ol li { color: #475569; margin-bottom: 0.6rem; line-height: 1.65; }
+        .blog-content figure { margin: 2.5rem 0; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; background: #f8fafc; }
+        .blog-content figure img { width: 100%; height: 320px; object-fit: cover; display: block; }
+        .blog-content figcaption { font-size: 0.75rem; color: #94a3b8; text-align: center; padding: 0.75rem 1rem 0.875rem; font-style: italic; background: #f8fafc; border-top: 1px solid #e2e8f0; }
+        .blog-content a { color: #2563eb; text-decoration: underline; font-weight: 500; }
+        .blog-content a:hover { color: #1d4ed8; }
+        @media (max-width: 640px) { .blog-content figure img { height: 200px; } .blog-content h2 { font-size: 1.3rem; } }
+      `}} />
+
       <Header />
       <main className="flex-1">
+
         {/* Post header */}
         <section className="pt-32 pb-10 px-4 border-b border-slate-100">
           <div className="mx-auto max-w-3xl">
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-slate-400 mb-8">
+              <Link href="/" className="hover:text-slate-600 transition-colors">Home</Link>
+              <span aria-hidden="true">/</span>
               <Link href="/resources" className="hover:text-slate-600 transition-colors">Resources</Link>
               <span aria-hidden="true">/</span>
               <Link href="/resources/blog" className="hover:text-slate-600 transition-colors">Blog</Link>
@@ -163,7 +167,7 @@ export default async function BlogPostPage({ params }: Props) {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-6">{post.title}</h1>
             <p className="text-xl text-slate-500 leading-relaxed mb-8">{post.description}</p>
             <div className="flex items-center gap-3 pt-6 border-t border-slate-100">
-              <div className="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">PH</div>
+              <div className="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0" aria-hidden="true">PH</div>
               <div>
                 <p className="text-sm font-semibold text-slate-900">{post.author}</p>
                 <p className="text-xs text-slate-400">{post.authorRole}</p>
@@ -172,9 +176,9 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </section>
 
-        {/* Hero image */}
+        {/* Hero cover image */}
         {post.coverImage && (
-          <section className="px-4 pt-10 pb-0">
+          <section className="px-4 pt-10">
             <div className="mx-auto max-w-3xl">
               <div className="relative w-full h-[260px] sm:h-[400px] rounded-2xl overflow-hidden bg-slate-100">
                 <Image
@@ -194,22 +198,35 @@ export default async function BlogPostPage({ params }: Props) {
         <section className="py-12 px-4">
           <div className="mx-auto max-w-3xl">
             <div
-              className="
-                [&>h2]:text-2xl [&>h2]:font-black [&>h2]:text-slate-900 [&>h2]:mt-12 [&>h2]:mb-4
-                [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-slate-800 [&>h3]:mt-8 [&>h3]:mb-3
-                [&>p]:text-slate-600 [&>p]:leading-relaxed [&>p]:mb-4
-                [&>ul]:mb-4 [&>ul]:space-y-2 [&>ul>li]:text-slate-600 [&>ul>li]:pl-4 [&>ul>li]:border-l-2 [&>ul>li]:border-blue-100
-                [&>ol]:mb-4 [&>ol]:space-y-2 [&>ol>li]:text-slate-600
-                [&>p>strong]:text-slate-900 [&>p>strong]:font-semibold
-                [&>ul>li>strong]:text-slate-900 [&>ul>li>strong]:font-semibold
-                [&>figure]:my-10 [&>figure]:rounded-2xl [&>figure]:overflow-hidden [&>figure]:bg-slate-50 [&>figure]:border [&>figure]:border-slate-100
-                [&>figure>img]:w-full [&>figure>img]:block [&>figure>img]:h-64 [&>figure>img]:sm:h-80 [&>figure>img]:object-cover
-                [&>figure>figcaption]:text-xs [&>figure>figcaption]:text-slate-400 [&>figure>figcaption]:text-center [&>figure>figcaption]:py-3 [&>figure>figcaption]:px-4 [&>figure>figcaption]:italic
-              "
+              className="blog-content"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </div>
         </section>
+
+        {/* Related Articles */}
+        {relatedPosts.length > 0 && (
+          <section className="py-12 px-4 bg-blue-50 border-t border-blue-100">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-xl font-black text-slate-900 mb-6">Related Articles</h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {relatedPosts.map(related => related && (
+                  <Link
+                    key={related.slug}
+                    href={`/resources/blog/${related.slug}`}
+                    className="group block bg-white rounded-xl border border-slate-200 p-5 hover:border-blue-300 hover:shadow-sm transition-all"
+                  >
+                    <span className="inline-flex text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full mb-3">{related.category}</span>
+                    <h3 className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-2">{related.title}</h3>
+                    <span className="flex items-center gap-1 text-xs font-semibold text-blue-600 group-hover:gap-2 transition-all">
+                      Read article <ArrowRight className="h-3 w-3" aria-hidden="true" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* FAQ */}
         {post.faqs.length > 0 && (

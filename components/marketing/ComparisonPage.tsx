@@ -1,240 +1,266 @@
 import Link from 'next/link'
-import { Check, X } from 'lucide-react'
+import { Check, X, ArrowRight, ChevronDown } from 'lucide-react'
 import type { ComparisonData } from '@/lib/comparisons'
+import { getAllBlogPosts } from '@/lib/blog'
 
 function FeatureCell({ value }: { value: boolean | string }) {
-  if (value === true) {
-    return (
-      <span className="flex justify-center">
-        <Check className="h-5 w-5 text-green-500" />
-      </span>
-    )
-  }
-  if (value === false) {
-    return (
-      <span className="flex justify-center">
-        <X className="h-5 w-5 text-red-400" />
-      </span>
-    )
-  }
-  return <span className="flex justify-center text-xs font-medium text-amber-600">{value}</span>
+  if (value === true) return <span className="inline-flex items-center justify-center"><Check className="h-5 w-5 text-emerald-500" aria-label="Yes" /></span>
+  if (value === false) return <span className="inline-flex items-center justify-center"><X className="h-5 w-5 text-red-400" aria-label="No" /></span>
+  return <span className="text-xs font-medium text-amber-700 bg-amber-50 px-2 py-1 rounded-full">{value}</span>
 }
 
 export function ComparisonPage({ data }: { data: ComparisonData }) {
-  const jsonLd = {
+  const allPosts = getAllBlogPosts()
+  // Show 3 relevant posts as further reading
+  const relatedPosts = allPosts.slice(0, 3)
+
+  const articleJsonLd = {
     '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Article',
-        headline: data.heroHeadline,
-        description: data.metaDescription,
-        datePublished: data.publishDate,
-        author: { '@type': 'Organization', name: 'Truleado' },
-        publisher: {
-          '@type': 'Organization',
-          name: 'Truleado',
-          url: 'https://truleado.com',
-        },
-      },
-      {
-        '@type': 'FAQPage',
-        mainEntity: data.faqs.map((faq) => ({
-          '@type': 'Question',
-          name: faq.question,
-          acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-        })),
-      },
+    '@type': 'Article',
+    headline: data.metaTitle,
+    description: data.metaDescription,
+    author: {
+      '@type': 'Organization',
+      name: 'Truleado',
+      url: 'https://truleado.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Truleado',
+      logo: { '@type': 'ImageObject', url: 'https://truleado.com/Truleado%20Logo%20Blue.png' },
+    },
+    datePublished: data.publishDate,
+    dateModified: data.publishDate,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://truleado.com/vs-${data.competitorSlug}`,
+    },
+    inLanguage: 'en-US',
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://truleado.com' },
+      { '@type': 'ListItem', position: 2, name: `Truleado vs ${data.competitorName}`, item: `https://truleado.com/vs-${data.competitorSlug}` },
     ],
   }
 
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: data.faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  }
+
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Truleado',
+    description: 'Influencer marketing software built for agencies. Manage campaigns, creators, clients, analytics, and payments from one workspace.',
+    url: 'https://truleado.com',
+    brand: { '@type': 'Brand', name: 'Truleado' },
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      description: 'Free to start. No credit card required.',
+    },
+  }
+
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <div className="min-h-screen flex flex-col bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
 
-      <main className="min-h-screen bg-white pt-28">
-        {/* Hero */}
-        <section className="px-4 py-16 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold mb-6">
-            Platform Comparison · 2026
+      {/* Hero */}
+      <section className="pt-32 pb-16 px-4 bg-gradient-to-b from-slate-50 to-white border-b border-slate-100">
+        <div className="mx-auto max-w-4xl">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-slate-400 mb-8">
+            <Link href="/" className="hover:text-slate-600 transition-colors">Home</Link>
+            <span>/</span>
+            <span className="text-slate-600">Truleado vs {data.competitorName}</span>
+          </nav>
+          <div className="inline-flex items-center gap-2 text-xs font-semibold text-blue-700 bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-full mb-6">
+            Honest comparison — updated {new Date(data.publishDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
           </div>
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-900 leading-tight mb-4">
-            {data.heroHeadline}
-          </h1>
-          <p className="text-lg text-slate-600 leading-relaxed mb-8">
-            {data.heroSubheadline}
-          </p>
-          <Link href="https://app.truleado.com/signup">
-            <button className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all hover:shadow-lg hover:shadow-blue-600/25">
-              Try Truleado Free — No Credit Card
-            </button>
-          </Link>
-        </section>
+          <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4">{data.heroHeadline}</h1>
+          <p className="text-xl text-slate-500 max-w-2xl">{data.heroSubheadline}</p>
+        </div>
+      </section>
 
-        {/* TL;DR */}
-        <section className="px-4 pb-12 max-w-3xl mx-auto">
-          <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
-            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-4">TL;DR</p>
-            <ul className="space-y-3">
+      {/* TL;DR */}
+      <section className="py-12 px-4">
+        <div className="mx-auto max-w-4xl">
+          <div className="bg-slate-900 rounded-2xl p-8">
+            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-5">TL;DR — Quick summary</p>
+            <ol className="space-y-3">
               {data.tldr.map((point, i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
-                  <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xs font-bold">
-                    {i + 1}
-                  </span>
-                  {point}
+                <li key={i} className="flex items-start gap-3">
+                  <span className="text-blue-400 font-black text-lg w-6 shrink-0">{i + 1}</span>
+                  <span className="text-slate-300">{point}</span>
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Feature Table */}
-        <section className="px-4 pb-16 max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">Feature Comparison</h2>
-          <div className="border border-slate-200 rounded-2xl overflow-hidden">
-            <table className="w-full text-sm">
+      {/* Feature table */}
+      <section className="py-12 px-4 bg-slate-50 border-y border-slate-100" aria-label="Feature comparison table">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-2xl font-black text-slate-900 mb-8">Feature-by-feature comparison</h2>
+          <div className="rounded-2xl border border-slate-200 overflow-hidden">
+            <table className="w-full">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
-                  <th className="text-left px-5 py-4 font-semibold text-slate-600 w-1/2">Feature</th>
-                  <th className="text-center px-4 py-4 font-bold text-blue-600 bg-blue-50">
-                    Truleado
-                  </th>
-                  <th className="text-center px-4 py-4 font-semibold text-slate-600">
-                    {data.competitorName}
-                  </th>
+                <tr className="bg-slate-100">
+                  <th className="text-left px-6 py-4 text-sm font-bold text-slate-700 w-1/2">Feature</th>
+                  <th className="text-center px-4 py-4 text-sm font-bold text-blue-700">Truleado</th>
+                  <th className="text-center px-4 py-4 text-sm font-bold text-slate-500">{data.competitorName}</th>
                 </tr>
               </thead>
-              <tbody>
-                {data.features.map((feature, i) => (
-                  <tr
-                    key={i}
-                    className={`border-b border-slate-100 last:border-0 ${
-                      i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'
-                    }`}
-                  >
-                    <td className="px-5 py-3.5 text-slate-700">{feature.label}</td>
-                    <td className="px-4 py-3.5 bg-blue-50/30">
-                      <FeatureCell value={feature.truleado} />
-                    </td>
-                    <td className="px-4 py-3.5">
-                      <FeatureCell value={feature.competitor} />
-                    </td>
+              <tbody className="divide-y divide-slate-100">
+                {data.features.map((row, i) => (
+                  <tr key={i} className="bg-white even:bg-slate-50/50">
+                    <td className="px-6 py-4 text-sm text-slate-700 font-medium">{row.label}</td>
+                    <td className="px-4 py-4 text-center"><FeatureCell value={row.truleado} /></td>
+                    <td className="px-4 py-4 text-center"><FeatureCell value={row.competitor} /></td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Where Truleado Wins */}
-        <section className="px-4 pb-16 max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">Where Truleado Wins</h2>
-          <div className="space-y-4">
-            {data.truleadoStrengths.map((item, i) => (
-              <div key={i} className="border border-slate-200 rounded-xl p-5">
-                <div className="flex items-start gap-3">
-                  <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center">
-                    <Check className="h-3 w-3 text-blue-600" />
-                  </span>
-                  <div>
-                    <h3 className="font-bold text-slate-900 mb-1.5">{item.title}</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">{item.body}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+      {/* Strengths */}
+      <section className="py-12 px-4">
+        <div className="mx-auto max-w-4xl grid md:grid-cols-2 gap-8">
+          <div>
+            <h2 className="text-xl font-black text-slate-900 mb-6">Where Truleado wins</h2>
+            <ul className="space-y-3">
+              {data.truleadoStrengths.map((s, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-slate-600 text-sm">{s}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </section>
-
-        {/* Where Competitor Wins */}
-        <section className="px-4 pb-16 max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">
-            Where {data.competitorName} Wins
-          </h2>
-          <div className="space-y-4">
-            {data.competitorStrengths.map((item, i) => (
-              <div key={i} className="border border-slate-200 rounded-xl p-5">
-                <h3 className="font-bold text-slate-900 mb-1.5">{item.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{item.body}</p>
-              </div>
-            ))}
+          <div>
+            <h2 className="text-xl font-black text-slate-900 mb-6">Where {data.competitorName} wins</h2>
+            <ul className="space-y-3">
+              {data.competitorStrengths.map((s, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <Check className="h-5 w-5 text-slate-400 shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-slate-600 text-sm">{s}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Who Should Choose */}
-        <section className="px-4 pb-16 max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">
-            Who Should Choose Which?
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="border-2 border-blue-200 bg-blue-50 rounded-xl p-5">
-              <p className="font-bold text-blue-700 mb-3">Choose Truleado if...</p>
-              <ul className="space-y-2">
-                {data.chooseTruleado.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-slate-700">
-                    <Check className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
-                    {item}
+      {/* Who should choose */}
+      <section className="py-12 px-4 bg-slate-50 border-y border-slate-100">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-2xl font-black text-slate-900 mb-8">Who should choose which?</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-blue-600 rounded-2xl p-7">
+              <p className="text-xs font-bold text-blue-200 uppercase tracking-widest mb-4">Choose Truleado if…</p>
+              <ul className="space-y-3">
+                {data.chooseTruleado.map((s, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <Check className="h-4 w-4 text-blue-200 shrink-0 mt-1" aria-hidden="true" />
+                    <span className="text-white text-sm">{s}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="border border-slate-200 bg-slate-50 rounded-xl p-5">
-              <p className="font-bold text-slate-600 mb-3">Choose {data.competitorName} if...</p>
-              <ul className="space-y-2">
-                {data.chooseCompetitor.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                    <Check className="h-4 w-4 text-slate-400 mt-0.5 flex-shrink-0" />
-                    {item}
+            <div className="bg-white border border-slate-200 rounded-2xl p-7">
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Choose {data.competitorName} if…</p>
+              <ul className="space-y-3">
+                {data.chooseCompetitor.map((s, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <Check className="h-4 w-4 text-slate-400 shrink-0 mt-1" aria-hidden="true" />
+                    <span className="text-slate-600 text-sm">{s}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Verdict */}
-        <section className="px-4 pb-16 max-w-3xl mx-auto">
+      {/* Verdict */}
+      <section className="py-12 px-4">
+        <div className="mx-auto max-w-4xl">
           <div className="bg-slate-900 rounded-2xl p-8">
-            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-3">Our Verdict</p>
-            <p className="text-white leading-relaxed text-[15px]">{data.verdict}</p>
+            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Our verdict</p>
+            <p className="text-white leading-relaxed">{data.verdict}</p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* FAQ */}
-        <section className="px-4 pb-16 max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
-          <div className="space-y-2">
+      {/* FAQ */}
+      <section className="py-12 px-4 bg-slate-50 border-t border-slate-100">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-2xl font-black text-slate-900 mb-8">Frequently asked questions</h2>
+          <div className="space-y-4">
             {data.faqs.map((faq, i) => (
-              <details key={i} className="border border-slate-200 rounded-xl overflow-hidden">
-                <summary className="flex items-center justify-between px-5 py-4 cursor-pointer font-medium text-slate-900 hover:bg-slate-50 transition-colors select-none">
-                  <span>{faq.question}</span>
-                  <span className="ml-4 text-slate-400 flex-shrink-0 text-lg leading-none">+</span>
+              <details key={i} className="group bg-white rounded-xl border border-slate-200 overflow-hidden">
+                <summary className="flex items-center justify-between px-6 py-4 cursor-pointer list-none">
+                  <span className="font-semibold text-slate-900 pr-4">{faq.question}</span>
+                  <ChevronDown className="h-4 w-4 text-slate-400 shrink-0 group-open:rotate-180 transition-transform" aria-hidden="true" />
                 </summary>
-                <div className="px-5 pb-5 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
-                  {faq.answer}
-                </div>
+                <div className="px-6 pb-5 text-slate-600 text-sm leading-relaxed">{faq.answer}</div>
               </details>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CTA */}
-        <section className="px-4 pb-24 max-w-3xl mx-auto">
-          <div className="bg-blue-600 rounded-2xl p-8 text-center">
-            <h2 className="text-2xl font-black text-white mb-2">Start with Truleado for Free</h2>
-            <p className="text-blue-100 mb-6 text-sm">
-              Purpose-built for influencer marketing agencies. No credit card required.
-            </p>
-            <Link href="https://app.truleado.com/signup">
-              <button className="inline-flex items-center px-6 py-3 text-sm font-semibold text-blue-600 bg-white rounded-full hover:bg-blue-50 transition-all">
-                Get Started Free
-              </button>
-            </Link>
+      {/* Related blog posts */}
+      <section className="py-12 px-4 border-t border-slate-100">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-xl font-black text-slate-900 mb-6">Further reading</h2>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {relatedPosts.map(post => (
+              <Link
+                key={post.slug}
+                href={`/resources/blog/${post.slug}`}
+                className="group block bg-slate-50 hover:bg-blue-50 rounded-xl border border-slate-200 hover:border-blue-200 p-5 transition-all"
+              >
+                <span className="text-xs font-semibold text-blue-600">{post.category}</span>
+                <h3 className="text-sm font-bold text-slate-900 group-hover:text-blue-700 mt-1 leading-snug">{post.title}</h3>
+                <span className="flex items-center gap-1 text-xs text-blue-600 mt-3 font-semibold">
+                  Read <ArrowRight className="h-3 w-3" />
+                </span>
+              </Link>
+            ))}
           </div>
-        </section>
-      </main>
-    </>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 px-4 bg-slate-900">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-black text-white mb-4">See for yourself why agencies choose Truleado</h2>
+          <p className="text-slate-400 mb-8">Free to start. No credit card required. Set up in minutes.</p>
+          <Link href="https://app.truleado.com/signup">
+            <button className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-500 transition-colors">
+              Start free trial <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </button>
+          </Link>
+        </div>
+      </section>
+    </div>
   )
 }
