@@ -29,6 +29,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>For agencies specifically, influencer marketing software solves a distinct problem: managing multiple clients, each with their own roster of creators, approval workflows, budgets, and reporting needs. Without dedicated software, agencies waste enormous time on coordination overhead that should go toward strategy and results.</p>
 
+<figure>
+  <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=900&h=500&q=80&auto=format&fit=crop" alt="Social media analytics dashboard on a laptop showing influencer campaign metrics" loading="lazy" />
+  <figcaption>Modern influencer marketing platforms surface real-time metrics across every creator and campaign in one place</figcaption>
+</figure>
+
 <h2>What Does Influencer Marketing Software Do?</h2>
 <p>A good influencer marketing platform covers the full campaign lifecycle:</p>
 
@@ -43,6 +48,11 @@ export const blogPosts: BlogPost[] = [
 
 <h3>4. Analytics and ROI Reporting</h3>
 <p>Measuring influencer marketing ROI is notoriously difficult without the right tools. Platforms track reach, impressions, engagement, clicks, and conversions at the campaign and creator level — and let you generate professional client reports in one click.</p>
+
+<figure>
+  <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&h=500&q=80&auto=format&fit=crop" alt="Business analytics and reporting dashboard with charts and graphs" loading="lazy" />
+  <figcaption>One-click ROI reporting turns raw campaign data into client-ready decks — no manual spreadsheet work required</figcaption>
+</figure>
 
 <h3>5. Finance and Payments</h3>
 <p>Paying creators, tracking budgets, and managing multi-currency campaigns is a significant operational burden for agencies. Influencer marketing software centralizes budget allocation, expense tracking, and creator payments so your finance team is never chasing invoices.</p>
@@ -136,6 +146,11 @@ export const blogPosts: BlogPost[] = [
 <li>Team members do not know who owns what</li>
 </ul>
 
+<figure>
+  <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&h=500&q=80&auto=format&fit=crop" alt="Organized remote work setup with multiple screens showing project management tools" loading="lazy" />
+  <figcaption>Agencies that scale past 5 clients do it with systems — not by working harder</figcaption>
+</figure>
+
 <p>The agencies that scale past this wall do it with systems, not heroics. Here is the system that works.</p>
 
 <h2>1. Separate Client Data from Day One</h2>
@@ -153,6 +168,11 @@ export const blogPosts: BlogPost[] = [
 
 <h2>4. Build Approval Workflows Before You Need Them</h2>
 <p>Most agencies set up approval workflows reactively. Build them before campaigns launch. A good multi-client approval system has two stages: internal review first, then client approval through their portal. Both stages should generate an audit trail.</p>
+
+<figure>
+  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&h=500&q=80&auto=format&fit=crop" alt="Marketing team collaborating around a table reviewing campaign materials" loading="lazy" />
+  <figcaption>Structured approval workflows replace chaotic email threads — every piece of content has a clear status and owner</figcaption>
+</figure>
 
 <h2>5. Give Clients a Portal, Not a Spreadsheet</h2>
 <p>A client portal answers status questions without you lifting a finger. Clients log in, see their campaign status, review content awaiting approval, and track performance — all without emailing your team. If each of ten clients sends two status emails a week, that is 20+ interruptions. A portal eliminates most of them.</p>
@@ -210,6 +230,11 @@ export const blogPosts: BlogPost[] = [
 <p><strong>ROI = (Revenue Generated - Campaign Cost) / Campaign Cost x 100</strong></p>
 <p>Campaign cost should include creator fees, product or gifting costs, platform fees, agency management fees, and ad spend on boosted posts.</p>
 
+<figure>
+  <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=900&h=500&q=80&auto=format&fit=crop" alt="Business analytics dashboard with performance metrics and ROI charts" loading="lazy" />
+  <figcaption>Real-time campaign dashboards let agencies track ROI at the creator level — not just at the campaign level</figcaption>
+</figure>
+
 <h2>Key Metrics to Track at Every Campaign Stage</h2>
 
 <h3>Pre-Launch</h3>
@@ -244,6 +269,11 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Setting Up Attribution Before Launch</h2>
 <p>Most attribution failures happen because tracking infrastructure was not set up before the campaign launched. Before any campaign goes live: create unique UTM parameters per creator, set up unique promo codes per creator, verify your analytics platform is tracking conversions correctly, and set up a pixel or conversion event for the specific action you are measuring.</p>
+
+<figure>
+  <img src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=900&h=500&q=80&auto=format&fit=crop" alt="Marketing attribution and conversion tracking setup with multiple data sources" loading="lazy" />
+  <figcaption>Attribution infrastructure must be set up before launch — retroactive tracking always produces incomplete data</figcaption>
+</figure>
 
 <h2>How to Report ROI to Clients</h2>
 <p>Client ROI reports should answer three questions: What did we set out to achieve? What did we actually achieve? What does that mean for the next campaign? Structure your report around campaign objectives, not platform metrics. Include a creator breakdown showing which creators over- or under-delivered and why.</p>
@@ -291,6 +321,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>The most common failure mode is burying the most important information — the campaign objective and the one thing the creator absolutely must communicate — somewhere in the middle of a five-page PDF. Creators scan briefs. If your key message is not near the top, it often does not make it into the content.</p>
 
+<figure>
+  <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900&h=500&q=80&auto=format&fit=crop" alt="Person writing notes in a notebook at a desk — planning a creative brief" loading="lazy" />
+  <figcaption>The best briefs are written from the creator's perspective — what do they need to know to do their best work?</figcaption>
+</figure>
+
 <h2>What to Include in an Influencer Brief</h2>
 
 <h3>1. Campaign Overview (1 paragraph)</h3>
@@ -316,6 +351,11 @@ export const blogPosts: BlogPost[] = [
 
 <h3>5. Brand Voice and Tone</h3>
 <p>Describe your brand voice in three adjectives. Then describe what it is not in three adjectives. Example: "Our brand is warm, direct, and grounded. We are not corporate, not overly formal, and never uses slang." Include two or three example phrases or captions that hit the right tone.</p>
+
+<figure>
+  <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&h=500&q=80&auto=format&fit=crop" alt="Creative team reviewing campaign materials and brand guidelines in a meeting" loading="lazy" />
+  <figcaption>Brand voice guidelines with examples prevent the most common brief failure — content that looks nothing like your brand</figcaption>
+</figure>
 
 <h3>6. Visual Guidelines</h3>
 <p>Specify whether the product should be shown in use, whether it needs to be held a specific way, whether faces need to be visible, whether outdoor or indoor settings are preferred, and any visual elements to avoid (competitor products, certain colors, specific settings).</p>
@@ -389,6 +429,11 @@ export const blogPosts: BlogPost[] = [
 <p>Example: A campaign generates 8 million impressions across Instagram and TikTok. Your industry benchmark CPM is $9.</p>
 <p>EMV = 8,000,000 x (9 / 1,000) = <strong>$72,000</strong></p>
 
+<figure>
+  <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=900&h=500&q=80&auto=format&fit=crop" alt="Financial planning and business metrics spreadsheet with ROI calculations" loading="lazy" />
+  <figcaption>EMV converts raw impressions into a dollar figure clients can benchmark against their paid media spend</figcaption>
+</figure>
+
 <p>Some agencies weight impressions differently by platform (TikTok impressions vs. Instagram impressions may have different benchmark CPMs), or weight engagement actions (likes, comments, shares, saves) at a higher CPM than passive impressions. These variations are valid — just document your methodology and apply it consistently across all clients and campaigns.</p>
 
 <h2>Why Agencies Use EMV</h2>
@@ -409,6 +454,11 @@ export const blogPosts: BlogPost[] = [
 <p><strong>ROI</strong> measures actual returns against actual spend: (Revenue - Cost) / Cost. It requires attribution data — promo codes, UTM-tagged links, or pixel-based conversion tracking — to calculate accurately.</p>
 
 <p>Use EMV for brand awareness campaigns where direct attribution is not possible or not the primary goal. Use ROI for direct response campaigns where conversion tracking is in place.</p>
+
+<figure>
+  <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&h=500&q=80&auto=format&fit=crop" alt="Business analytics charts showing the difference between reach metrics and conversion metrics" loading="lazy" />
+  <figcaption>EMV and ROI answer different questions — use both in client reports to give a complete picture of campaign impact</figcaption>
+</figure>
 
 <h2>The Limitations of EMV</h2>
 <p>EMV is a useful proxy metric, but it has real limitations that every agency should disclose to clients:</p>

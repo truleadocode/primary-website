@@ -194,13 +194,18 @@ export default async function BlogPostPage({ params }: Props) {
         <section className="py-12 px-4">
           <div className="mx-auto max-w-3xl">
             <div
-              className="[&>h2]:text-2xl [&>h2]:font-black [&>h2]:text-slate-900 [&>h2]:mt-12 [&>h2]:mb-4
+              className="
+                [&>h2]:text-2xl [&>h2]:font-black [&>h2]:text-slate-900 [&>h2]:mt-12 [&>h2]:mb-4
                 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-slate-800 [&>h3]:mt-8 [&>h3]:mb-3
                 [&>p]:text-slate-600 [&>p]:leading-relaxed [&>p]:mb-4
                 [&>ul]:mb-4 [&>ul]:space-y-2 [&>ul>li]:text-slate-600 [&>ul>li]:pl-4 [&>ul>li]:border-l-2 [&>ul>li]:border-blue-100
                 [&>ol]:mb-4 [&>ol]:space-y-2 [&>ol>li]:text-slate-600
                 [&>p>strong]:text-slate-900 [&>p>strong]:font-semibold
-                [&>ul>li>strong]:text-slate-900 [&>ul>li>strong]:font-semibold"
+                [&>ul>li>strong]:text-slate-900 [&>ul>li>strong]:font-semibold
+                [&>figure]:my-10 [&>figure]:rounded-2xl [&>figure]:overflow-hidden [&>figure]:bg-slate-50 [&>figure]:border [&>figure]:border-slate-100
+                [&>figure>img]:w-full [&>figure>img]:block [&>figure>img]:h-64 [&>figure>img]:sm:h-80 [&>figure>img]:object-cover
+                [&>figure>figcaption]:text-xs [&>figure>figcaption]:text-slate-400 [&>figure>figcaption]:text-center [&>figure>figcaption]:py-3 [&>figure>figcaption]:px-4 [&>figure>figcaption]:italic
+              "
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </div>
