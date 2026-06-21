@@ -149,7 +149,10 @@ export function ComparisonPage({ data }: { data: ComparisonData }) {
               {data.truleadoStrengths.map((s, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" aria-hidden="true" />
-                  <span className="text-slate-600 text-sm">{s}</span>
+                  <div>
+                    <p className="text-slate-900 text-sm font-semibold">{s.title}</p>
+                    <p className="text-slate-600 text-sm mt-0.5">{s.body}</p>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -160,7 +163,10 @@ export function ComparisonPage({ data }: { data: ComparisonData }) {
               {data.competitorStrengths.map((s, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <Check className="h-5 w-5 text-slate-400 shrink-0 mt-0.5" aria-hidden="true" />
-                  <span className="text-slate-600 text-sm">{s}</span>
+                  <div>
+                    <p className="text-slate-900 text-sm font-semibold">{s.title}</p>
+                    <p className="text-slate-600 text-sm mt-0.5">{s.body}</p>
+                  </div>
                 </li>
               ))}
             </ul>
