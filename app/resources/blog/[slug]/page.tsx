@@ -29,7 +29,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: post.title,
     description: post.description,
     authors: [{ name: post.author, url: 'https://truleado.com/resources/blog' }],
-    alternates: { canonical: `https://truleado.com/resources/blog/${post.slug}` },
+    alternates: {
+      canonical: `https://truleado.com/resources/blog/${post.slug}`,
+      languages: post.lang === 'nl'
+        ? {
+            'nl-NL': `https://truleado.com/resources/blog/${post.slug}`,
+            'x-default': `https://truleado.com/resources/blog/${post.slug}`,
+          }
+        : {
+            'en': `https://truleado.com/resources/blog/${post.slug}`,
+            'x-default': `https://truleado.com/resources/blog/${post.slug}`,
+          },
+    },
     openGraph: {
       title: `${post.title} | Truleado Blog`,
       description: post.description,
